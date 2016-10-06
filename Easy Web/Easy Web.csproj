@@ -12,6 +12,21 @@
     <AssemblyName>Easy Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +47,47 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>g4966.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v15.1" />
     <Reference Include="DevExpress.Data.v15.1" />
+    <Reference Include="DevExpress.ExpressApp.Images.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v15.1" />
     <Reference Include="DevExpress.Xpo.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -54,6 +107,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cssfunctions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,17 +122,57 @@
     <Compile Include="Color.Designer.cs">
       <DependentUpon>Color.cs</DependentUpon>
     </Compile>
-    <Compile Include="XtraForm1.cs">
+    <Compile Include="fontsize.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XtraForm1.Designer.cs">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
+    <Compile Include="fontsize.Designer.cs">
+      <DependentUpon>fontsize.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeFont.Designer.cs">
+      <DependentUpon>ChangeFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="borderwidth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="borderwidth.Designer.cs">
+      <DependentUpon>borderwidth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="opacity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="opacity.Designer.cs">
+      <DependentUpon>opacity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BImage.Designer.cs">
+      <DependentUpon>BImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="border.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="border.Designer.cs">
+      <DependentUpon>border.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stringfun.cs" />
+    <EmbeddedResource Include="BImage.resx">
+      <DependentUpon>BImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="border.resx">
+      <DependentUpon>border.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Color.resx">
       <DependentUpon>Color.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="opacity.resx">
+      <DependentUpon>opacity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -91,6 +185,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="fontsize.resx">
+      <DependentUpon>fontsize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeFont.resx">
+      <DependentUpon>ChangeFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="borderwidth.resx">
+      <DependentUpon>borderwidth.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,6 +213,10 @@
       <Project>{6dd14a85-ccfc-4774-bd26-0f5772512319}</Project>
       <Name>FastColoredTextBox</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MIcrosoftEdgeLauncherCsharp\MIcrosoftEdgeLauncherCsharp.csproj">
+      <Project>{affcaefd-5cab-4491-8fad-4c4363b78528}</Project>
+      <Name>MIcrosoftEdgeLauncherCsharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\firefox.png" />
@@ -118,6 +226,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logos-Internet-Explorer-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edge.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="g4966.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

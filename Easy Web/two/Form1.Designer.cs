@@ -48,7 +48,6 @@
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.firefox = new DevExpress.XtraBars.BarButtonItem();
             this.Internet_Explorer = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.status = new DevExpress.XtraBars.BarStaticItem();
@@ -58,7 +57,6 @@
             this.bar6 = new DevExpress.XtraBars.Bar();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -113,7 +111,22 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.documentMap1 = new FastColoredTextBoxNS.DocumentMap();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.addclass = new DevExpress.XtraNavBar.NavBarItem();
+            this.bold = new DevExpress.XtraNavBar.NavBarItem();
+            this.color = new DevExpress.XtraNavBar.NavBarItem();
+            this.Backgroundcolor = new DevExpress.XtraNavBar.NavBarItem();
+            this.bordercolor = new DevExpress.XtraNavBar.NavBarItem();
+            this.OutlineColor = new DevExpress.XtraNavBar.NavBarItem();
+            this.TextDecorationColor = new DevExpress.XtraNavBar.NavBarItem();
+            this.Font = new DevExpress.XtraNavBar.NavBarItem();
+            this.FontWeightNormal = new DevExpress.XtraNavBar.NavBarItem();
+            this.italic = new DevExpress.XtraNavBar.NavBarItem();
+            this.Fontsize = new DevExpress.XtraNavBar.NavBarItem();
+            this.backgroundrepeaty = new DevExpress.XtraNavBar.NavBarItem();
+            this.repeatx = new DevExpress.XtraNavBar.NavBarItem();
+            this.BackgroundRepeatno = new DevExpress.XtraNavBar.NavBarItem();
+            this.Borderwidth = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.commetns = new DevExpress.XtraNavBar.NavBarItem();
             this.h1 = new DevExpress.XtraNavBar.NavBarItem();
@@ -143,26 +156,6 @@
             this.button = new DevExpress.XtraNavBar.NavBarItem();
             this.dropdownlist = new DevExpress.XtraNavBar.NavBarItem();
             this.option = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.addclass = new DevExpress.XtraNavBar.NavBarItem();
-            this.bold = new DevExpress.XtraNavBar.NavBarItem();
-            this.color = new DevExpress.XtraNavBar.NavBarItem();
-            this.Backgroundcolor = new DevExpress.XtraNavBar.NavBarItem();
-            this.bordercolor = new DevExpress.XtraNavBar.NavBarItem();
-            this.OutlineColor = new DevExpress.XtraNavBar.NavBarItem();
-            this.TextDecorationColor = new DevExpress.XtraNavBar.NavBarItem();
-            this.Font = new DevExpress.XtraNavBar.NavBarItem();
-            this.FontWeightNormal = new DevExpress.XtraNavBar.NavBarItem();
-            this.italic = new DevExpress.XtraNavBar.NavBarItem();
-            this.Fontsize = new DevExpress.XtraNavBar.NavBarItem();
-            this.backgroundrepeaty = new DevExpress.XtraNavBar.NavBarItem();
-            this.repeatx = new DevExpress.XtraNavBar.NavBarItem();
-            this.BackgroundRepeatno = new DevExpress.XtraNavBar.NavBarItem();
-            this.Borderwidth = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.classpanel = new DevExpress.XtraEditors.PanelControl();
@@ -209,9 +202,9 @@
             this.classpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classname.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // barManager1
-            // 
+            //
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
             this.bar2,
@@ -262,20 +255,18 @@
             this.barEditItem2,
             this.barEditItem3,
             this.barEditItem4,
-            this.barWorkspaceMenuItem1,
-            this.barButtonItem20,
-            this.barButtonItem21});
+            this.barWorkspaceMenuItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 42;
+            this.barManager1.MaxItemId = 40;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemColorEdit1,
             this.repositoryItemTextEdit1,
             this.repositoryItemColorPickEdit1,
             this.repositoryItemOfficeColorPickEdit1});
             this.barManager1.StatusBar = this.bar3;
-            // 
+            //
             // bar1
-            // 
+            //
             this.bar1.BarName = "Tools";
             this.bar1.DockCol = 0;
             this.bar1.DockRow = 1;
@@ -285,30 +276,30 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem12)});
             this.bar1.Text = "Tools";
-            // 
+            //
             // barButtonItem2
-            // 
+            //
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.ImageUri.Uri = "Add";
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
-            // 
+            //
             // barButtonItem11
-            // 
+            //
             this.barButtonItem11.Id = 23;
             this.barButtonItem11.ImageUri.Uri = "Open";
             this.barButtonItem11.Name = "barButtonItem11";
             this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
-            // 
+            //
             // barButtonItem12
-            // 
+            //
             this.barButtonItem12.Id = 24;
             this.barButtonItem12.ImageUri.Uri = "ExportFile";
             this.barButtonItem12.Name = "barButtonItem12";
             this.barButtonItem12.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem12_ItemClick);
-            // 
+            //
             // bar2
-            // 
+            //
             this.bar2.BarName = "Main menu";
             this.bar2.DockCol = 0;
             this.bar2.DockRow = 0;
@@ -321,9 +312,9 @@
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
-            // 
+            //
             // barSubItem1
-            // 
+            //
             this.barSubItem1.Caption = "&File";
             this.barSubItem1.Id = 1;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -333,104 +324,96 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.save_file),
             new DevExpress.XtraBars.LinkPersistInfo(this.exit)});
             this.barSubItem1.Name = "barSubItem1";
-            // 
+            //
             // new_project
-            // 
+            //
             this.new_project.Caption = "&New Project";
             this.new_project.Id = 3;
             this.new_project.Name = "new_project";
             this.new_project.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.new_project_ItemClick);
-            // 
+            //
             // open_project
-            // 
+            //
             this.open_project.Caption = "&Open Project";
             this.open_project.Id = 4;
             this.open_project.Name = "open_project";
             this.open_project.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.open_project_ItemClick);
-            // 
+            //
             // save_project
-            // 
+            //
             this.save_project.Caption = "Save Project";
             this.save_project.Id = 5;
             this.save_project.Name = "save_project";
             this.save_project.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.save_project_ItemClick);
-            // 
+            //
             // save_file
-            // 
+            //
             this.save_file.Caption = "&Save File";
             this.save_file.Id = 6;
             this.save_file.Name = "save_file";
             this.save_file.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.save_file_ItemClick);
-            // 
+            //
             // exit
-            // 
+            //
             this.exit.Caption = "&Exit";
             this.exit.Id = 8;
             this.exit.Name = "exit";
             this.exit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.exit_ItemClick);
-            // 
+            //
             // barSubItem2
-            // 
+            //
             this.barSubItem2.Caption = "&Edit";
             this.barSubItem2.Id = 10;
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem17),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem18)});
             this.barSubItem2.Name = "barSubItem2";
-            // 
+            //
             // barButtonItem17
-            // 
+            //
             this.barButtonItem17.Caption = "Find";
             this.barButtonItem17.Id = 30;
             this.barButtonItem17.Name = "barButtonItem17";
             this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
-            // 
+            //
             // barButtonItem18
-            // 
+            //
             this.barButtonItem18.Caption = "Find And Replace";
             this.barButtonItem18.Id = 31;
             this.barButtonItem18.Name = "barButtonItem18";
             this.barButtonItem18.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem18_ItemClick);
-            // 
+            //
             // barSubItem3
-            // 
+            //
             this.barSubItem3.Caption = "&Run";
             this.barSubItem3.Id = 12;
             this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.firefox),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Internet_Explorer),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem20)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.Internet_Explorer)});
             this.barSubItem3.Name = "barSubItem3";
-            // 
+            //
             // firefox
-            // 
+            //
             this.firefox.Caption = "FireFox";
             this.firefox.Id = 21;
             this.firefox.Name = "firefox";
             this.firefox.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.firefox_ItemClick);
-            // 
+            //
             // Internet_Explorer
-            // 
+            //
             this.Internet_Explorer.Caption = "Internet Explorer";
             this.Internet_Explorer.Id = 22;
             this.Internet_Explorer.Name = "Internet_Explorer";
             this.Internet_Explorer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Internet_Explorer_ItemClick);
-            // 
-            // barButtonItem20
-            // 
-            this.barButtonItem20.Caption = "Edge";
-            this.barButtonItem20.Id = 40;
-            this.barButtonItem20.Name = "barButtonItem20";
-            this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
-            // 
+            //
             // barSubItem5
-            // 
+            //
             this.barSubItem5.Caption = "&Help";
             this.barSubItem5.Id = 14;
             this.barSubItem5.Name = "barSubItem5";
-            // 
+            //
             // bar3
-            // 
+            //
             this.bar3.BarName = "Status bar";
             this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
             this.bar3.DockCol = 0;
@@ -442,15 +425,15 @@
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Status bar";
-            // 
+            //
             // status
-            // 
+            //
             this.status.Id = 29;
             this.status.Name = "status";
             this.status.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
+            //
             // bar5
-            // 
+            //
             this.bar5.BarName = "Custom 5";
             this.bar5.DockCol = 1;
             this.bar5.DockRow = 1;
@@ -460,229 +443,225 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem14)});
             this.bar5.Offset = 114;
             this.bar5.Text = "Custom 5";
-            // 
+            //
             // barButtonItem13
-            // 
+            //
+            this.barButtonItem13.Caption = "barButtonItem13";
             this.barButtonItem13.Id = 25;
             this.barButtonItem13.ImageUri.Uri = "Undo";
             this.barButtonItem13.Name = "barButtonItem13";
-            // 
+            //
             // barButtonItem14
-            // 
+            //
+            this.barButtonItem14.Caption = "barButtonItem14";
             this.barButtonItem14.Id = 26;
             this.barButtonItem14.ImageUri.Uri = "Redo";
             this.barButtonItem14.Name = "barButtonItem14";
-            // 
+            //
             // bar6
-            // 
+            //
             this.bar6.BarName = "Custom 6";
             this.bar6.DockCol = 2;
             this.bar6.DockRow = 1;
             this.bar6.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem15),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem16),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem21)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem16)});
             this.bar6.Offset = 244;
             this.bar6.Text = "Custom 6";
-            // 
+            //
             // barButtonItem15
-            // 
+            //
             this.barButtonItem15.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.barButtonItem15.Caption = "barButtonItem15";
             this.barButtonItem15.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.Glyph")));
             this.barButtonItem15.Id = 27;
             this.barButtonItem15.Name = "barButtonItem15";
             this.barButtonItem15.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem15_ItemClick);
-            // 
+            //
             // barButtonItem16
-            // 
+            //
+            this.barButtonItem16.Caption = "barButtonItem16";
             this.barButtonItem16.Glyph = global::Easy_Web.Properties.Resources.Logos_Internet_Explorer_icon;
             this.barButtonItem16.Id = 28;
             this.barButtonItem16.Name = "barButtonItem16";
             this.barButtonItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem16_ItemClick);
-            // 
-            // barButtonItem21
-            // 
-            this.barButtonItem21.Glyph = global::Easy_Web.Properties.Resources.edge;
-            this.barButtonItem21.Id = 41;
-            this.barButtonItem21.Name = "barButtonItem21";
-            this.barButtonItem21.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem21_ItemClick);
-            // 
+            //
             // barDockControlTop
-            // 
+            //
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Size = new System.Drawing.Size(950, 53);
-            // 
+            //
             // barDockControlBottom
-            // 
+            //
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 637);
             this.barDockControlBottom.Size = new System.Drawing.Size(950, 25);
-            // 
+            //
             // barDockControlLeft
-            // 
+            //
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 53);
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 584);
-            // 
+            //
             // barDockControlRight
-            // 
+            //
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(950, 53);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 584);
-            // 
+            //
             // barButtonItem1
-            // 
+            //
             this.barButtonItem1.Caption = "barButtonItem1";
             this.barButtonItem1.Id = 0;
             this.barButtonItem1.Name = "barButtonItem1";
-            // 
+            //
             // save_as
-            // 
+            //
             this.save_as.Caption = "Save As";
             this.save_as.Id = 7;
             this.save_as.Name = "save_as";
-            // 
+            //
             // barButtonItem3
-            // 
+            //
             this.barButtonItem3.Caption = "barButtonItem3";
             this.barButtonItem3.Id = 9;
             this.barButtonItem3.Name = "barButtonItem3";
-            // 
+            //
             // barButtonItem4
-            // 
+            //
             this.barButtonItem4.Caption = "&Options";
             this.barButtonItem4.Id = 11;
             this.barButtonItem4.Name = "barButtonItem4";
-            // 
+            //
             // barSubItem4
-            // 
+            //
             this.barSubItem4.Caption = "barSubItem4";
             this.barSubItem4.Id = 13;
             this.barSubItem4.Name = "barSubItem4";
-            // 
+            //
             // barButtonItem5
-            // 
+            //
             this.barButtonItem5.Caption = "Add HTML";
             this.barButtonItem5.Id = 15;
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
-            // 
+            //
             // barButtonItem6
-            // 
+            //
             this.barButtonItem6.Caption = "Add CSS";
             this.barButtonItem6.Id = 16;
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
-            // 
+            //
             // barButtonItem7
-            // 
+            //
             this.barButtonItem7.Caption = "Add Image,Video or Audio";
             this.barButtonItem7.Id = 17;
             this.barButtonItem7.Name = "barButtonItem7";
             this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
-            // 
+            //
             // barButtonItem8
-            // 
+            //
             this.barButtonItem8.Caption = "Add Font";
             this.barButtonItem8.Id = 18;
             this.barButtonItem8.Name = "barButtonItem8";
             this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
-            // 
+            //
             // barButtonItem9
-            // 
+            //
             this.barButtonItem9.Caption = "New HTML";
             this.barButtonItem9.Id = 19;
             this.barButtonItem9.Name = "barButtonItem9";
             this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
-            // 
+            //
             // barButtonItem10
-            // 
+            //
             this.barButtonItem10.Caption = "New CSS";
             this.barButtonItem10.Id = 20;
             this.barButtonItem10.Name = "barButtonItem10";
             this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
-            // 
+            //
             // barSubItem6
-            // 
+            //
             this.barSubItem6.Caption = "Tools";
             this.barSubItem6.Id = 32;
             this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barEditItem3)});
             this.barSubItem6.Name = "barSubItem6";
-            // 
+            //
             // barEditItem3
-            // 
+            //
             this.barEditItem3.Edit = null;
             this.barEditItem3.Id = 38;
             this.barEditItem3.Name = "barEditItem3";
-            // 
+            //
             // barButtonItem19
-            // 
+            //
             this.barButtonItem19.Caption = "Color Code Generator";
             this.barButtonItem19.Id = 33;
             this.barButtonItem19.Name = "barButtonItem19";
-            // 
+            //
             // barEditItem1
-            // 
+            //
             this.barEditItem1.Caption = "barEditItem1";
             this.barEditItem1.Edit = this.repositoryItemColorEdit1;
             this.barEditItem1.Id = 34;
             this.barEditItem1.Name = "barEditItem1";
-            // 
+            //
             // repositoryItemColorEdit1
-            // 
+            //
             this.repositoryItemColorEdit1.AutoHeight = false;
             this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
-            // 
+            //
             // barEditItem2
-            // 
+            //
             this.barEditItem2.Caption = "barEditItem2";
             this.barEditItem2.Edit = this.repositoryItemTextEdit1;
             this.barEditItem2.Id = 35;
             this.barEditItem2.Name = "barEditItem2";
-            // 
+            //
             // repositoryItemTextEdit1
-            // 
+            //
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
+            //
             // barEditItem4
-            // 
+            //
             this.barEditItem4.Caption = "barEditItem4";
             this.barEditItem4.Edit = this.repositoryItemOfficeColorPickEdit1;
             this.barEditItem4.Id = 37;
             this.barEditItem4.Name = "barEditItem4";
-            // 
+            //
             // repositoryItemOfficeColorPickEdit1
-            // 
+            //
             this.repositoryItemOfficeColorPickEdit1.AutoHeight = false;
             this.repositoryItemOfficeColorPickEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemOfficeColorPickEdit1.Name = "repositoryItemOfficeColorPickEdit1";
-            // 
+            //
             // barWorkspaceMenuItem1
-            // 
+            //
             this.barWorkspaceMenuItem1.Caption = "barWorkspaceMenuItem1";
             this.barWorkspaceMenuItem1.Id = 39;
             this.barWorkspaceMenuItem1.Name = "barWorkspaceMenuItem1";
-            // 
+            //
             // repositoryItemColorPickEdit1
-            // 
+            //
             this.repositoryItemColorPickEdit1.AutoHeight = false;
             this.repositoryItemColorPickEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemColorPickEdit1.Name = "repositoryItemColorPickEdit1";
-            // 
+            //
             // html_file_list
-            // 
+            //
             this.html_file_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.html_file_list.Enabled = false;
             this.html_file_list.ImageList = this.Listicon;
@@ -694,17 +673,17 @@
             this.html_file_list.Size = new System.Drawing.Size(170, 84);
             this.html_file_list.TabIndex = 0;
             this.html_file_list.SelectedIndexChanged += new System.EventHandler(this.html_file_list_SelectedIndexChanged);
-            // 
+            //
             // Listicon
-            // 
+            //
             this.Listicon.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("Listicon.ImageStream")));
             this.Listicon.Images.SetKeyName(0, "application_xml.png");
             this.Listicon.Images.SetKeyName(1, "1465320076_file-css.png");
             this.Listicon.Images.SetKeyName(2, "1465320202_image.png");
             this.Listicon.Images.SetKeyName(3, "font.png");
-            // 
+            //
             // list_menu
-            // 
+            //
             this.list_menu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
@@ -714,9 +693,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8)});
             this.list_menu.Manager = this.barManager1;
             this.list_menu.Name = "list_menu";
-            // 
+            //
             // css_file_list
-            // 
+            //
             this.css_file_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.css_file_list.Enabled = false;
             this.css_file_list.ImageList = this.Listicon;
@@ -729,9 +708,9 @@
             this.css_file_list.TabIndex = 1;
             this.css_file_list.SelectedIndexChanged += new System.EventHandler(this.css_file_list_SelectedIndexChanged);
             this.css_file_list.DoubleClick += new System.EventHandler(this.css_file_list_DoubleClick);
-            // 
+            //
             // iame_file_list
-            // 
+            //
             this.iame_file_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iame_file_list.Enabled = false;
             this.iame_file_list.ImageList = this.Listicon;
@@ -745,9 +724,9 @@
             this.iame_file_list.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.iame_file_list.SelectedIndexChanged += new System.EventHandler(this.iame_file_list_SelectedIndexChanged);
             this.iame_file_list.DoubleClick += new System.EventHandler(this.iame_file_list_DoubleClick);
-            // 
+            //
             // font_file_list
-            // 
+            //
             this.font_file_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.font_file_list.Enabled = false;
             this.font_file_list.ImageList = this.Listicon;
@@ -759,9 +738,9 @@
             this.font_file_list.Size = new System.Drawing.Size(171, 284);
             this.font_file_list.TabIndex = 3;
             this.font_file_list.DoubleClick += new System.EventHandler(this.font_file_list_DoubleClick);
-            // 
+            //
             // splitContainerControl1
-            // 
+            //
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 53);
             this.splitContainerControl1.Name = "splitContainerControl1";
@@ -773,9 +752,9 @@
             this.splitContainerControl1.SplitterPosition = 752;
             this.splitContainerControl1.TabIndex = 4;
             this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
+            //
             // splitContainerControl2
-            // 
+            //
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl2.Name = "splitContainerControl2";
@@ -787,9 +766,9 @@
             this.splitContainerControl2.SplitterPosition = 174;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
-            // 
+            //
             // splitContainerControl3
-            // 
+            //
             this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl3.Horizontal = false;
             this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
@@ -803,9 +782,9 @@
             this.splitContainerControl3.SplitterPosition = 87;
             this.splitContainerControl3.TabIndex = 0;
             this.splitContainerControl3.Text = "splitContainerControl3";
-            // 
+            //
             // splitContainerControl4
-            // 
+            //
             this.splitContainerControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl4.Horizontal = false;
             this.splitContainerControl4.Location = new System.Drawing.Point(0, 0);
@@ -819,9 +798,9 @@
             this.splitContainerControl4.SplitterPosition = 87;
             this.splitContainerControl4.TabIndex = 1;
             this.splitContainerControl4.Text = "splitContainerControl4";
-            // 
+            //
             // splitContainerControl5
-            // 
+            //
             this.splitContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl5.Horizontal = false;
             this.splitContainerControl5.Location = new System.Drawing.Point(0, 0);
@@ -836,9 +815,9 @@
             this.splitContainerControl5.SplitterPosition = 87;
             this.splitContainerControl5.TabIndex = 2;
             this.splitContainerControl5.Text = "splitContainerControl5";
-            // 
+            //
             // splitContainerControl6
-            // 
+            //
             this.splitContainerControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl6.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl6.Name = "splitContainerControl6";
@@ -851,9 +830,9 @@
             this.splitContainerControl6.SplitterPosition = 472;
             this.splitContainerControl6.TabIndex = 0;
             this.splitContainerControl6.Text = "splitContainerControl6";
-            // 
+            //
             // tab
-            // 
+            //
             this.tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab.Enabled = false;
             this.tab.Location = new System.Drawing.Point(4, 0);
@@ -866,19 +845,19 @@
             this.xtraTabPage2,
             this.xtraTabPage3});
             this.tab.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tab_SelectedPageChanged);
-            // 
+            //
             // xtraTabPage1
-            // 
+            //
             this.xtraTabPage1.Controls.Add(this.simpleButton1);
             this.xtraTabPage1.Controls.Add(this.ImageV);
             this.xtraTabPage1.Controls.Add(this.panel2);
             this.xtraTabPage1.Controls.Add(this.htmltext);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(466, 557);
-            this.xtraTabPage1.Text = "Source[]";
-            // 
+            this.xtraTabPage1.Text = "Source";
+            //
             // simpleButton1
-            // 
+            //
             this.simpleButton1.Location = new System.Drawing.Point(430, 43);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(29, 29);
@@ -886,9 +865,9 @@
             this.simpleButton1.Text = "X";
             this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
-            // 
+            //
             // ImageV
-            // 
+            //
             this.ImageV.Location = new System.Drawing.Point(0, 38);
             this.ImageV.MenuManager = this.barManager1;
             this.ImageV.Name = "ImageV";
@@ -897,9 +876,9 @@
             this.ImageV.Size = new System.Drawing.Size(466, 363);
             this.ImageV.TabIndex = 3;
             this.ImageV.Visible = false;
-            // 
+            //
             // panel2
-            // 
+            //
             this.panel2.Controls.Add(this.file_c);
             this.panel2.Controls.Add(this.file_ok);
             this.panel2.Controls.Add(this.label1);
@@ -909,44 +888,44 @@
             this.panel2.Size = new System.Drawing.Size(200, 97);
             this.panel2.TabIndex = 2;
             this.panel2.Visible = false;
-            // 
+            //
             // file_c
-            // 
+            //
             this.file_c.Location = new System.Drawing.Point(107, 54);
             this.file_c.Name = "file_c";
             this.file_c.Size = new System.Drawing.Size(75, 23);
             this.file_c.TabIndex = 3;
             this.file_c.Text = "Cancle";
             this.file_c.Click += new System.EventHandler(this.file_c_Click);
-            // 
+            //
             // file_ok
-            // 
+            //
             this.file_ok.Location = new System.Drawing.Point(20, 54);
             this.file_ok.Name = "file_ok";
             this.file_ok.Size = new System.Drawing.Size(75, 23);
             this.file_ok.TabIndex = 2;
             this.file_ok.Text = "Ok";
             this.file_ok.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(71, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "File Name";
-            // 
+            //
             // file_name_box
-            // 
+            //
             this.file_name_box.Location = new System.Drawing.Point(20, 28);
             this.file_name_box.MenuManager = this.barManager1;
             this.file_name_box.Name = "file_name_box";
             this.file_name_box.Size = new System.Drawing.Size(162, 20);
             this.file_name_box.TabIndex = 0;
-            // 
+            //
             // htmltext
-            // 
+            //
             this.htmltext.AutoCompleteBrackets = true;
             this.htmltext.AutoCompleteBracketsList = new char[] {
         '(',
@@ -974,7 +953,6 @@
             this.htmltext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.htmltext.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
             this.htmltext.FoldingIndicatorColor = System.Drawing.Color.Crimson;
-            this.htmltext.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.htmltext.ForeColor = System.Drawing.Color.White;
             this.htmltext.IsReplaceMode = false;
             this.htmltext.Language = FastColoredTextBoxNS.Language.HTML;
@@ -990,16 +968,16 @@
             this.htmltext.Size = new System.Drawing.Size(466, 557);
             this.htmltext.TabIndex = 1;
             this.htmltext.Zoom = 100;
-            // 
+            //
             // xtraTabPage2
-            // 
+            //
             this.xtraTabPage2.Controls.Add(this.csstext);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(466, 541);
-            this.xtraTabPage2.Text = "CSS[]";
-            // 
+            this.xtraTabPage2.Size = new System.Drawing.Size(466, 557);
+            this.xtraTabPage2.Text = "CSS";
+            //
             // csstext
-            // 
+            //
             this.csstext.AutoCompleteBrackets = true;
             this.csstext.AutoCompleteBracketsList = new char[] {
         '(',
@@ -1023,7 +1001,6 @@
             this.csstext.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.csstext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.csstext.FoldingIndicatorColor = System.Drawing.Color.Crimson;
-            this.csstext.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.csstext.ForeColor = System.Drawing.Color.White;
             this.csstext.IsReplaceMode = false;
             this.csstext.Location = new System.Drawing.Point(0, 0);
@@ -1031,30 +1008,30 @@
             this.csstext.Paddings = new System.Windows.Forms.Padding(0);
             this.csstext.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.csstext.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("csstext.ServiceColors")));
-            this.csstext.Size = new System.Drawing.Size(466, 541);
+            this.csstext.Size = new System.Drawing.Size(466, 557);
             this.csstext.TabIndex = 1;
             this.csstext.Zoom = 100;
             this.csstext.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.csstext_TextChanged);
-            // 
+            //
             // xtraTabPage3
-            // 
+            //
             this.xtraTabPage3.Controls.Add(this.webBrowser1);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(466, 541);
-            this.xtraTabPage3.Text = "Live[]";
-            // 
+            this.xtraTabPage3.Size = new System.Drawing.Size(466, 557);
+            this.xtraTabPage3.Text = "Live";
+            //
             // webBrowser1
-            // 
+            //
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(466, 541);
+            this.webBrowser1.Size = new System.Drawing.Size(466, 557);
             this.webBrowser1.TabIndex = 1;
-            // 
+            //
             // documentMap1
-            // 
+            //
             this.documentMap1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.documentMap1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.documentMap1.ForeColor = System.Drawing.Color.White;
@@ -1064,18 +1041,15 @@
             this.documentMap1.TabIndex = 2;
             this.documentMap1.Target = this.htmltext;
             this.documentMap1.Text = "documentMap1";
-            // 
+            //
             // navBarControl1
-            // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup1;
+            //
+            this.navBarControl1.ActiveGroup = this.navBarGroup2;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Enabled = false;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
-            this.navBarGroup2,
-            this.navBarGroup3,
-            this.navBarGroup4,
-            this.navBarGroup5});
+            this.navBarGroup2});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.h1,
             this.h2,
@@ -1119,9 +1093,7 @@
             this.backgroundrepeaty,
             this.repeatx,
             this.BackgroundRepeatno,
-            this.Borderwidth,
-            this.navBarItem2,
-            this.navBarItem3});
+            this.Borderwidth});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 186;
@@ -1130,17 +1102,122 @@
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
-            // 
-            // navBarGroup4
-            // 
-            this.navBarGroup4.Caption = "Bootstrap";
-            this.navBarGroup4.Expanded = true;
-            this.navBarGroup4.Name = "navBarGroup4";
-            // 
+            //
+            // navBarGroup2
+            //
+            this.navBarGroup2.Caption = "CSS";
+            this.navBarGroup2.Expanded = true;
+            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.addclass),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.bold),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.color),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.Backgroundcolor),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.bordercolor),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.OutlineColor),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.TextDecorationColor),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.Font),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.FontWeightNormal),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.italic),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.Fontsize),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.backgroundrepeaty),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.repeatx),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.BackgroundRepeatno),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.Borderwidth)});
+            this.navBarGroup2.Name = "navBarGroup2";
+            //
+            // addclass
+            //
+            this.addclass.Caption = "Add Class";
+            this.addclass.Name = "addclass";
+            this.addclass.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.addclass_LinkClicked);
+            //
+            // bold
+            //
+            this.bold.Caption = "Bold";
+            this.bold.Name = "bold";
+            this.bold.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.bold_LinkClicked);
+            //
+            // color
+            //
+            this.color.Caption = "Colors";
+            this.color.Name = "color";
+            this.color.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
+            //
+            // Backgroundcolor
+            //
+            this.Backgroundcolor.Caption = "Background Color";
+            this.Backgroundcolor.Name = "Backgroundcolor";
+            this.Backgroundcolor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
+            //
+            // bordercolor
+            //
+            this.bordercolor.Caption = "Border Color";
+            this.bordercolor.Name = "bordercolor";
+            this.bordercolor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
+            //
+            // OutlineColor
+            //
+            this.OutlineColor.Caption = "Outline Color";
+            this.OutlineColor.Name = "OutlineColor";
+            this.OutlineColor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
+            //
+            // TextDecorationColor
+            //
+            this.TextDecorationColor.Caption = "Text Decoration Color";
+            this.TextDecorationColor.Name = "TextDecorationColor";
+            this.TextDecorationColor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
+            //
+            // Font
+            //
+            this.Font.Caption = "Change Font";
+            this.Font.Name = "Font";
+            this.Font.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.Font_LinkClicked);
+            //
+            // FontWeightNormal
+            //
+            this.FontWeightNormal.Caption = "Font Weight Normal";
+            this.FontWeightNormal.Name = "FontWeightNormal";
+            this.FontWeightNormal.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.FontWeightNormal_LinkClicked);
+            //
+            // italic
+            //
+            this.italic.Caption = "Italic";
+            this.italic.Name = "italic";
+            this.italic.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.italic_LinkClicked);
+            //
+            // Fontsize
+            //
+            this.Fontsize.Caption = "Font Size";
+            this.Fontsize.Name = "Fontsize";
+            this.Fontsize.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.Fontsize_LinkClicked);
+            //
+            // backgroundrepeaty
+            //
+            this.backgroundrepeaty.Caption = "Background Repeat y";
+            this.backgroundrepeaty.Name = "backgroundrepeaty";
+            this.backgroundrepeaty.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.backgroundrepeaty_LinkClicked);
+            //
+            // repeatx
+            //
+            this.repeatx.Caption = "Background Repeat x";
+            this.repeatx.Name = "repeatx";
+            this.repeatx.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.repeatx_LinkClicked);
+            //
+            // BackgroundRepeatno
+            //
+            this.BackgroundRepeatno.Caption = "Background Repeat no";
+            this.BackgroundRepeatno.Name = "BackgroundRepeatno";
+            this.BackgroundRepeatno.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.BackgroundRepeatno_LinkClicked);
+            //
+            // Borderwidth
+            //
+            this.Borderwidth.Caption = "Border Width";
+            this.Borderwidth.Name = "Borderwidth";
+            this.Borderwidth.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.Borderwidth_LinkClicked);
+            //
             // navBarGroup1
-            // 
+            //
             this.navBarGroup1.Caption = "HTML";
-            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.commetns),
             new DevExpress.XtraNavBar.NavBarItemLink(this.h1),
@@ -1171,312 +1248,177 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.dropdownlist),
             new DevExpress.XtraNavBar.NavBarItemLink(this.option)});
             this.navBarGroup1.Name = "navBarGroup1";
-            // 
+            //
             // commetns
-            // 
+            //
             this.commetns.Caption = "Comments";
             this.commetns.Name = "commetns";
             this.commetns.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.commetns_LinkClicked);
-            // 
+            //
             // h1
-            // 
+            //
             this.h1.Caption = "Heading 1";
             this.h1.Name = "h1";
             this.h1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.h1_LinkClicked);
-            // 
+            //
             // h2
-            // 
+            //
             this.h2.Caption = "Heading 2";
             this.h2.Name = "h2";
             this.h2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.h2_LinkClicked);
-            // 
+            //
             // navBarItem1
-            // 
+            //
             this.navBarItem1.Caption = "Line Break";
             this.navBarItem1.Name = "navBarItem1";
             this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
-            // 
+            //
             // p
-            // 
+            //
             this.p.Caption = "Paragraph";
             this.p.Name = "p";
             this.p.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.p_LinkClicked);
-            // 
+            //
             // pe
-            // 
+            //
             this.pe.Caption = "Pre";
             this.pe.Name = "pe";
             this.pe.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.pe_LinkClicked);
-            // 
+            //
             // div
-            // 
+            //
             this.div.Caption = "Divishion";
             this.div.Name = "div";
             this.div.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.div_LinkClicked);
-            // 
+            //
             // img
-            // 
+            //
             this.img.Caption = "Image";
             this.img.Name = "img";
             this.img.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.img_LinkClicked);
-            // 
+            //
             // Video
-            // 
+            //
             this.Video.Caption = "Video";
             this.Video.Name = "Video";
             this.Video.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.Video_LinkClicked);
-            // 
+            //
             // audio
-            // 
+            //
             this.audio.Caption = "Audio";
             this.audio.Name = "audio";
             this.audio.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.audio_LinkClicked);
-            // 
+            //
             // a
-            // 
+            //
             this.a.Caption = "Link to other Page";
             this.a.Name = "a";
             this.a.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.a_LinkClicked);
-            // 
+            //
             // nav
-            // 
+            //
             this.nav.Caption = "Navigation";
             this.nav.Name = "nav";
             this.nav.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nav_LinkClicked);
-            // 
+            //
             // em
-            // 
+            //
             this.em.Caption = "Emphasized Text ";
             this.em.Name = "em";
             this.em.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.em_LinkClicked);
-            // 
+            //
             // hr
-            // 
+            //
             this.hr.Caption = "Horizontal Line";
             this.hr.Name = "hr";
             this.hr.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.hr_LinkClicked);
-            // 
+            //
             // iframe
-            // 
+            //
             this.iframe.Caption = "iframe";
             this.iframe.Name = "iframe";
             this.iframe.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.iframe_LinkClicked);
-            // 
+            //
             // table
-            // 
+            //
             this.table.Caption = "Table";
             this.table.Name = "table";
             this.table.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.table_LinkClicked);
-            // 
+            //
             // addrow
-            // 
+            //
             this.addrow.Caption = "Add Row";
             this.addrow.Name = "addrow";
             this.addrow.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.addrow_LinkClicked);
-            // 
+            //
             // addcell
-            // 
+            //
             this.addcell.Caption = "Add Cell";
             this.addcell.Name = "addcell";
             this.addcell.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.addcell_LinkClicked);
-            // 
+            //
             // unorderedlist
-            // 
+            //
             this.unorderedlist.Caption = "Unordered List";
             this.unorderedlist.Name = "unorderedlist";
             this.unorderedlist.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.unorderedlist_LinkClicked);
-            // 
+            //
             // orderedlist
-            // 
+            //
             this.orderedlist.Caption = "Ordered List";
             this.orderedlist.Name = "orderedlist";
             this.orderedlist.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.orderedlist_LinkClicked);
-            // 
+            //
             // listitem
-            // 
+            //
             this.listitem.Caption = "Add List Item";
             this.listitem.Name = "listitem";
             this.listitem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.listitem_LinkClicked);
-            // 
+            //
             // inputtext
-            // 
+            //
             this.inputtext.Caption = "Input Text";
             this.inputtext.Name = "inputtext";
             this.inputtext.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem8_LinkClicked);
-            // 
+            //
             // form
-            // 
+            //
             this.form.Caption = "Form";
             this.form.Name = "form";
             this.form.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.form_LinkClicked);
-            // 
+            //
             // inputsubmit
-            // 
+            //
             this.inputsubmit.Caption = "Input Submit";
             this.inputsubmit.Name = "inputsubmit";
             this.inputsubmit.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.inputsubmit_LinkClicked);
-            // 
+            //
             // textarea
-            // 
+            //
             this.textarea.Caption = "Text Area";
             this.textarea.Name = "textarea";
             this.textarea.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.textarea_LinkClicked);
-            // 
+            //
             // button
-            // 
+            //
             this.button.Caption = "Button";
             this.button.Name = "button";
             this.button.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.button_LinkClicked);
-            // 
+            //
             // dropdownlist
-            // 
+            //
             this.dropdownlist.Caption = "Drop Down List";
             this.dropdownlist.Name = "dropdownlist";
             this.dropdownlist.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.dropdownlist_LinkClicked);
-            // 
+            //
             // option
-            // 
+            //
             this.option.Caption = "Option";
             this.option.Name = "option";
             this.option.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.option_LinkClicked);
-            // 
-            // navBarGroup2
-            // 
-            this.navBarGroup2.Caption = "CSS";
-            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.addclass),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.bold),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.color),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.Backgroundcolor),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.bordercolor),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.OutlineColor),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.TextDecorationColor),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.Font),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.FontWeightNormal),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.italic),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.Fontsize),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.backgroundrepeaty),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.repeatx),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.BackgroundRepeatno),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.Borderwidth),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
-            this.navBarGroup2.Name = "navBarGroup2";
-            // 
-            // addclass
-            // 
-            this.addclass.Caption = "Add Class";
-            this.addclass.Name = "addclass";
-            this.addclass.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.addclass_LinkClicked);
-            // 
-            // bold
-            // 
-            this.bold.Caption = "Bold";
-            this.bold.Name = "bold";
-            this.bold.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.bold_LinkClicked);
-            // 
-            // color
-            // 
-            this.color.Caption = "Colors";
-            this.color.Name = "color";
-            this.color.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
-            // 
-            // Backgroundcolor
-            // 
-            this.Backgroundcolor.Caption = "Background Color";
-            this.Backgroundcolor.Name = "Backgroundcolor";
-            this.Backgroundcolor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
-            // 
-            // bordercolor
-            // 
-            this.bordercolor.Caption = "Border Color";
-            this.bordercolor.Name = "bordercolor";
-            this.bordercolor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
-            // 
-            // OutlineColor
-            // 
-            this.OutlineColor.Caption = "Outline Color";
-            this.OutlineColor.Name = "OutlineColor";
-            this.OutlineColor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
-            // 
-            // TextDecorationColor
-            // 
-            this.TextDecorationColor.Caption = "Text Decoration Color";
-            this.TextDecorationColor.Name = "TextDecorationColor";
-            this.TextDecorationColor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.color_LinkClicked);
-            // 
-            // Font
-            // 
-            this.Font.Caption = "Change Font";
-            this.Font.Name = "Font";
-            this.Font.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.Font_LinkClicked);
-            // 
-            // FontWeightNormal
-            // 
-            this.FontWeightNormal.Caption = "Font Weight Normal";
-            this.FontWeightNormal.Name = "FontWeightNormal";
-            this.FontWeightNormal.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.FontWeightNormal_LinkClicked);
-            // 
-            // italic
-            // 
-            this.italic.Caption = "Italic";
-            this.italic.Name = "italic";
-            this.italic.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.italic_LinkClicked);
-            // 
-            // Fontsize
-            // 
-            this.Fontsize.Caption = "Font Size";
-            this.Fontsize.Name = "Fontsize";
-            this.Fontsize.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.Fontsize_LinkClicked);
-            // 
-            // backgroundrepeaty
-            // 
-            this.backgroundrepeaty.Caption = "Background Repeat y";
-            this.backgroundrepeaty.Name = "backgroundrepeaty";
-            this.backgroundrepeaty.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.backgroundrepeaty_LinkClicked);
-            // 
-            // repeatx
-            // 
-            this.repeatx.Caption = "Background Repeat x";
-            this.repeatx.Name = "repeatx";
-            this.repeatx.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.repeatx_LinkClicked);
-            // 
-            // BackgroundRepeatno
-            // 
-            this.BackgroundRepeatno.Caption = "Background Repeat no";
-            this.BackgroundRepeatno.Name = "BackgroundRepeatno";
-            this.BackgroundRepeatno.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.BackgroundRepeatno_LinkClicked);
-            // 
-            // Borderwidth
-            // 
-            this.Borderwidth.Caption = "Border Width";
-            this.Borderwidth.Name = "Borderwidth";
-            this.Borderwidth.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.Borderwidth_LinkClicked);
-            // 
-            // navBarItem2
-            // 
-            this.navBarItem2.Caption = "Opacity";
-            this.navBarItem2.Name = "navBarItem2";
-            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
-            // 
-            // navBarItem3
-            // 
-            this.navBarItem3.Caption = "Background Image";
-            this.navBarItem3.Name = "navBarItem3";
-            this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
-            // 
-            // navBarGroup3
-            // 
-            this.navBarGroup3.Caption = "Animate.css";
-            this.navBarGroup3.Name = "navBarGroup3";
-            // 
-            // navBarGroup5
-            // 
-            this.navBarGroup5.Caption = "W3.CSS";
-            this.navBarGroup5.Name = "navBarGroup5";
-            // 
+            //
             // bar4
-            // 
+            //
             this.bar4.BarName = "Tools";
             this.bar4.DockCol = 0;
             this.bar4.DockRow = 1;
@@ -1486,14 +1428,14 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem12)});
             this.bar4.Text = "Tools";
-            // 
+            //
             // timer1
-            // 
+            //
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
+            //
             // classpanel
-            // 
+            //
             this.classpanel.Controls.Add(this.calsscancel);
             this.classpanel.Controls.Add(this.labelControl1);
             this.classpanel.Controls.Add(this.classok);
@@ -1503,43 +1445,43 @@
             this.classpanel.Size = new System.Drawing.Size(183, 100);
             this.classpanel.TabIndex = 9;
             this.classpanel.Visible = false;
-            // 
+            //
             // calsscancel
-            // 
+            //
             this.calsscancel.Location = new System.Drawing.Point(108, 59);
             this.calsscancel.Name = "calsscancel";
             this.calsscancel.Size = new System.Drawing.Size(57, 23);
             this.calsscancel.TabIndex = 3;
             this.calsscancel.Text = "Cancle";
             this.calsscancel.Click += new System.EventHandler(this.calsscancel_Click);
-            // 
+            //
             // labelControl1
-            // 
+            //
             this.labelControl1.Location = new System.Drawing.Point(61, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(59, 13);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Class Name:";
-            // 
+            //
             // classok
-            // 
+            //
             this.classok.Location = new System.Drawing.Point(21, 59);
             this.classok.Name = "classok";
             this.classok.Size = new System.Drawing.Size(57, 23);
             this.classok.TabIndex = 1;
             this.classok.Text = "OK";
             this.classok.Click += new System.EventHandler(this.classok_Click);
-            // 
+            //
             // classname
-            // 
+            //
             this.classname.Location = new System.Drawing.Point(21, 24);
             this.classname.MenuManager = this.barManager1;
             this.classname.Name = "classname";
             this.classname.Size = new System.Drawing.Size(144, 20);
             this.classname.TabIndex = 0;
-            // 
+            //
             // Form1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 662);
@@ -1549,15 +1491,12 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Web";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseHover += new System.EventHandler(this.Form1_MouseHover);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
@@ -1634,7 +1573,7 @@
         private DevExpress.XtraEditors.ImageListBoxControl html_file_list;
         private DevExpress.Utils.ImageCollection Listicon;
         private DevExpress.XtraEditors.ImageListBoxControl css_file_list;
-        public DevExpress.XtraEditors.ImageListBoxControl iame_file_list;
+        private DevExpress.XtraEditors.ImageListBoxControl iame_file_list;
         private DevExpress.XtraEditors.ImageListBoxControl font_file_list;
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
@@ -1679,7 +1618,7 @@
         private DevExpress.XtraEditors.PictureEdit ImageV;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.Timer timer1;
-        public DevExpress.XtraBars.BarStaticItem status;
+        private DevExpress.XtraBars.BarStaticItem status;
         private DevExpress.XtraBars.BarButtonItem barButtonItem17;
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraBars.BarSubItem barSubItem6;
@@ -1739,13 +1678,6 @@
         private DevExpress.XtraNavBar.NavBarItem repeatx;
         private DevExpress.XtraNavBar.NavBarItem BackgroundRepeatno;
         private DevExpress.XtraNavBar.NavBarItem Borderwidth;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem21;
     }
 }
 

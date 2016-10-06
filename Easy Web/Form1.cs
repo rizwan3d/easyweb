@@ -1,14 +1,20 @@
-﻿using FastColoredTextBoxNS;
+﻿using DevExpress.XtraNavBar;
+using FastColoredTextBoxNS;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using MIcrosoftEdgeLauncherCsharp;
+using Microsoft.Win32;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace Easy_Web
 {
-    struct projectfiles
+    public struct projectfiles
     {
         public string path;
         public string name;
@@ -17,6 +23,48 @@ namespace Easy_Web
     }
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
+
+        // This function does all the work
+        [DllImport("Trial.dll", EntryPoint = "ReadSettingsStr", CharSet = CharSet.Ansi)]
+        static extern uint InitTrial(String aKeyCode, IntPtr aHWnd);
+
+        // Use this function to register the application when the application is running
+        [DllImport("Trial.dll", EntryPoint = "DisplayRegistrationStr", CharSet = CharSet.Ansi)]
+        static extern uint DisplayRegistration(String aKeyCode, IntPtr aHWnd);
+
+        // Use this function to silently register the license without displaying our registration dialog; when called the function saves the license (without validating it) on local machine and returns 0 for success or a different exit code otherwise
+        [DllImport("Trial.dll", EntryPoint = "RegisterStr", CharSet = CharSet.Unicode)]
+        static extern uint RegisterLicense(String aKeyCode, String aLicense);
+
+        private const string kLibraryKey = "A6141A5B7BC0F9839795C56DA9FD870FD0C506";
+
+        private static void OnInit()
+        {
+            //try
+            //{
+                Process process = Process.GetCurrentProcess();                
+                InitTrial(kLibraryKey, process.MainWindowHandle);
+            //}
+            //catch (DllNotFoundException ex)
+            //{
+            //    // Trial dll is missing close the application immediately.
+            //    MessageBox.Show(ex.ToString());
+            //    Process.GetCurrentProcess().Kill();
+            //}
+            //catch (Exception ex1)
+            //{
+            //    MessageBox.Show(ex1.ToString());
+            //}
+        }
+
+        // Function called from the application menu, when registering it
+        private void RegisterApp(object sender, EventArgs e)
+        {
+            Process process = Process.GetCurrentProcess();
+            DisplayRegistration(kLibraryKey, process.MainWindowHandle);
+        }
+
+
         #region attributes
         string[] attributes = { "html", "download", "target", "_blank" , "_parent" , "_self" , "_top" , "controls" , "audio/mpeg" , "audio/ogg" , "audio/wav"
                 , "autoplay", "loop" ,"disabled" , "reset" , "submit" , "get" , "post","on","off" , "button"
@@ -97,7 +145,7 @@ namespace Easy_Web
                 ,"Georgia","serif","expanded","normal","oblique","italic","small-caps","bold","rtl","bidi-override","collapse"
                 ,"separate","hide","fixed","section","subsection","Section", "counter(section)","counter(subsection)","square","sqpurple"
                 ,"circle","upper-roman","lower-alpha","infinite","mymove","alternate","forwards","paused","linear","rotate","preserve"
-                ,"width","crosshair","help","wait","auto","outset","all","always","avoid","grayscale"};
+                ,"width","crosshair","help","wait","auto","outset","all","always","avoid","grayscale","font-family"};
         #endregion
 
         Style BlueBoldStyle = new TextStyle(Brushes.Red, null, FontStyle.Bold);
@@ -111,23 +159,30 @@ namespace Easy_Web
         Style SlateGray = new TextStyle(Brushes.PeachPuff, null, FontStyle.Regular);
         Style DarkViolet = new TextStyle(Brushes.DarkViolet, null, FontStyle.Regular);
 
-        int cmse = 0 , pfco =0;
-        string CCSS, CHTML, path;
+        public int cmse = 0 , pfco =0;
+        public string CCSS, CHTML, path;
 
-        string snippetstext = "<!DOCTYPE html>\n<html>\n<head>\n    <title>\n        my first web page\n    </title>\n    <link rel = \"stylesheet\" type=\"text/css\" href=\"./css/basic.css\">\n</head>\n<body>\n\n\n\n</body>\n</html>";
+        string snippetstext = "<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>\n        my first web page\n    </title>\n    <link rel = \"stylesheet\" type=\"text/css\" href=\"./css/basic.css\">\n</head>\n<body>\n\n\n\n</body>\n</html>";
 
         AutocompleteMenu popupMenu;
         AutocompleteMenu popupMenu2;
 
-        projectfiles[] pf = new projectfiles[10000];
-        private bool firstrun = true;        
+        public projectfiles[] pf = new projectfiles[10000];
+        private bool firstrun = true;
+        private bool projopend;
+        private cssfunctions cssfun = new cssfunctions();
 
         private void open_project_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (projopend)
+            {
+                Application.Restart();
+            }
+
             FolderBrowserDialog f = new FolderBrowserDialog();
             if (f.ShowDialog() == DialogResult.OK)
             {
-                if (Directory.Exists(f.SelectedPath + "\\css") && Directory.Exists(f.SelectedPath + "\\img") && Directory.Exists(f.SelectedPath + "\\fonts"))
+                if (Directory.Exists(f.SelectedPath + "\\css") && Directory.Exists(f.SelectedPath + "\\img") && Directory.Exists(f.SelectedPath + "\\fonts") && File.Exists(f.SelectedPath + "\\index.html") && File.Exists(f.SelectedPath + "\\css\\basic.css"))
                 {
                     Fulllist(f.SelectedPath);
                     filecodepf();
@@ -140,6 +195,27 @@ namespace Easy_Web
                     path = f.SelectedPath;
                     status.Caption = "Porject Opened";
                     updateautocompleat();
+                    projopend = !projopend;
+                    foreach(projectfiles p in pf)
+                    {
+                        if(p.name != null)
+                        {
+                            if (p.name.Contains("index.html"))
+                            {
+                                htmltext.Text = p.hcode;
+                                CHTML = p.name;
+                                webBrowser1.Navigate(path + "\\" +p.name);
+                            }
+                            if (p.name.Contains("basic.css"))
+                            {
+                                csstext.Text = p.ccode;
+                                CCSS = p.name;
+                            }
+                        }
+                    }
+
+                    settabname();
+
                 }
                 else
                     MessageBox.Show("Invalid Project");
@@ -206,6 +282,7 @@ namespace Easy_Web
                         webBrowser1.Navigate(pf[i].path);
                     }
                 }
+                settabname();
             }
         }
         private void css_file_list_SelectedIndexChanged(object sender, EventArgs e)
@@ -225,6 +302,7 @@ namespace Easy_Web
                         CCSS = pf[i].name;
                     }
                 }
+                settabname();
             }
         }
         private void css_file_list_DoubleClick(object sender, EventArgs e)
@@ -287,7 +365,7 @@ namespace Easy_Web
 
             e.ChangedRange.SetFoldingMarkers("{", "}");
             e.ChangedRange.SetFoldingMarkers(@"/\*", @"\*/");
-        }        
+        }
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             panel2.Visible = true;
@@ -493,24 +571,41 @@ namespace Easy_Web
         }
         private void firefox_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (CHTML != null)
+            var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\firefox.exe\");
+
+            string productName = (string)reg.GetValue("Path") + "\\firefox.exe";
+            if (File.Exists(productName))
             {
-                string url = (path + "\\" + CHTML);
-                System.Diagnostics.Process.Start("firefox.exe", "\"" + url + "\"");
+                if (CHTML != null)
+                {
+                    string url = (path + "\\" + CHTML);
+                    System.Diagnostics.Process.Start("firefox.exe", "\"" + url + "\"");
+                }
             }
+            else
+                MessageBox.Show("Install Firefox");
         }
         private void Internet_Explorer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (CHTML != null)
+            var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\iexplorer.exe\");
+
+            string productName = (string)reg.GetValue("Path") + "\\iexplorer.exe";
+            if (File.Exists(productName))
             {
-                string url = (path + "\\" + CHTML);
-                System.Diagnostics.Process.Start("iexplore.exe", "\"" + url + "\"");
+                if (CHTML != null)
+                {
+                    string url = (path + "\\" + CHTML);
+                    System.Diagnostics.Process.Start("iexplore.exe", "\"" + url + "\"");
+                }
             }
+            else
+                MessageBox.Show("Install Internet Explorer");
         }
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             new_project.PerformClick();
-        }        private void file_c_Click(object sender, EventArgs e)
+        }
+        private void file_c_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
         }
@@ -540,13 +635,13 @@ namespace Easy_Web
             {
                 if (iame_file_list.SelectedItem != null)
                 {
-                    
+
                     foreach (projectfiles p2 in pf)
                     {
                         if (p2.name != null)
                         {
                             if (iame_file_list.SelectedItem.ToString() == p2.name)
-                            {                                
+                            {
                                 ImageV.Image = new Bitmap(p2.path);
                                 ImageV.Visible = true;
                                 timer1.Enabled = true;
@@ -584,7 +679,7 @@ namespace Easy_Web
                 pfco++;
                 status.Caption = "HTML File Added";
                 updateautocompleat();
-            }            
+            }
         }
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -609,12 +704,13 @@ namespace Easy_Web
                     {
                         if (font_file_list.SelectedItem.ToString() == p.name)
                         {
-                            csstext.Text = "font-face {\n    font-family: " + p.name + ";\n    src: url(../fonts/"+ p.name +");\n}" + csstext.Text;
+                            string extension =Path.GetExtension(p.name);
+                            string result = p.name.Substring(0, p.name.Length - extension.Length);
+                            csstext.Text = "@font-face {\n    font-family: " + result + ";\n    src: url(../fonts/"+ p.name +");\n}" + csstext.Text;
                         }
                     }
                 }
             }
-            
         }
         private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -657,7 +753,7 @@ namespace Easy_Web
         private void hr_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             htmltext.SelectedText = "<hr />";
-        }             
+        }
         private void a_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             htmltext.SelectedText = "<a herf=\"\"> </a>";
@@ -743,6 +839,10 @@ namespace Easy_Web
         }
         private void new_project_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (projopend)
+            {
+                Application.Restart();
+            }
             cProject();
             tab.Enabled = true;
             css_file_list.Enabled = true;
@@ -751,7 +851,11 @@ namespace Easy_Web
             iame_file_list.Enabled = true;
             navBarControl1.Enabled = true;
             filecodepf();
+            CHTML = "index.html";
+            CCSS = "basic.css";
             status.Caption = "Project Created";
+            settabname();
+            projopend = !projopend;
         }
         void cProject()
         {
@@ -807,8 +911,8 @@ namespace Easy_Web
             foreach (FileInfo f in IMGFiles)
             {
                 pf[pfco].name = f.Name;
-                pf[pfco].path = f.FullName;                
-                iame_file_list.Items.Add(pf[pfco].name,2);                
+                pf[pfco].path = f.FullName;
+                iame_file_list.Items.Add(pf[pfco].name,2);
                 pfco++;
             }
             foreach (FileInfo f in FONFiles)
@@ -817,7 +921,7 @@ namespace Easy_Web
                 pf[pfco].path = f.FullName;
                 font_file_list.Items.Add(pf[pfco].name,3);
                 pfco++;
-            }          
+            }
         }
         private void commetns_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -842,8 +946,9 @@ namespace Easy_Web
         }
         private void classok_Click(object sender, EventArgs e)
         {
-            if (htmltext.SelectedText.Contains("<") && htmltext.SelectedText.Contains(">"))            
-                htmltext.SelectedText = "<" + getBetween(htmltext.SelectedText, "<", ">") + " class=\"" + classname.Text + "\">";
+            if (htmltext.SelectedText.Contains("<") && htmltext.SelectedText.Contains(">"))
+                htmltext.SelectedText = this.cssfun.applyclass(htmltext.SelectedText, classname.Text);
+
             else
                 MessageBox.Show("Invalid Tag");
             classname.Text = "";
@@ -909,11 +1014,198 @@ namespace Easy_Web
 
         private void Font_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            ChangeFont cf = new ChangeFont();
+            cf.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            OnInit();
+            string[] textArray1 = new string[] {
+       "bounce", "flash", "pulse", "rubberBand", "shake", "headShake", "swing", "tada", "wobble", "jello", "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp", "bounceOut",
+       "bounceOutDown", "bounceOutLeft", "bounceOutRight", "bounceOutUp", "fadeIn", "fadeInDown", "fadeInDownBig", "fadeInLeft", "fadeInLeftBig", "fadeInRight", "fadeInRightBig", "fadeInUp", "fadeInUpBig", "fadeOut", "fadeOutDown", "fadeOutDownBig",
+       "fadeOutLeft", "fadeOutLeftBig", "fadeOutRight", "fadeOutRightBig", "fadeOutUp", "fadeOutUpBig", "flipInX", "flipInY", "flipOutX", "flipOutY", "lightSpeedIn", "lightSpeedOut", "rotateIn", "rotateInDownLeft", "rotateInDownRight", "rotateInUpLeft",
+       "rotateInUpRight", "rotateOut", "rotateOutDownLeft", "rotateOutDownRight", "rotateOutUpLeft", "rotateOutUpRight", "hinge", "rollIn", "rollOut", "zoomIn", "zoomInDown", "zoomInLeft", "zoomInRight", "zoomInUp", "zoomOut", "zoomOutDown",
+       "zoomOutLeft", "zoomOutRight", "zoomOutUp", "slideInDown", "slideInLeft", "slideInRight", "slideInUp", "slideOutDown", "slideOutLeft", "slideOutRight", "slideOutUp"
+        };
+            foreach (string str in textArray1)
+            {
+                NavBarItem ContentsItem = navBarControl1.Items.Add();
+                ContentsItem.Caption = "Contents";
+                ContentsItem.Caption = str;
+                ContentsItem.LinkClicked += new NavBarLinkEventHandler(this.ContentsItem_LinkClicked);
+                navBarGroup3.ItemLinks.Add(ContentsItem);
+            }
+            textArray1 = new string[]{ "w3-red","w3-pink","w3-purple","w3-deep-purple","w3-indigo","w3-blue","w3-light-blue","w3-cyan","w3-aqua","w3-teal","w3-green","w3-light-green","w3-lime","w3-sand","w3-khaki","w3-yellow","w3-amber","w3-orange","w3-deep-orange","w3-blue-grey","w3-brown","w3-light-grey","w3-grey","w3-dark-grey","w3-black","w3-pale-red","w3-pale-yellow","w3-pale-green","w3-pale-blue"
+,"w3-container","w3-section","w3-border","w3-border-top","w3-border-right","w3-border-bottom","w3-border-left","w3-border-0"
+,"w3-bottombar","w3-leftbar","w3-rightbar","w3-topbar"
+,"w3-border-red","w3-border-pink","w3-border-purple","w3-border-deep-purple","w3-border-indigo","w3-border-blue","w3-border-light-blue","w3-border-cyan","w3-border-aqua","w3-border-teal","w3-border-green","w3-border-light-green","w3-border-lime","w3-border-sand","w3-border-khaki","w3-border-yellow","w3-border-amber","w3-border-orange","w3-border-deep-orange","w3-border-blue-grey","w3-border-brown","w3-border-light-grey","w3-border-grey","w3-border-dark-grey","w3-border-black","w3-border-pale-red","w3-border-pale-yellow","w3-border-pale-green","w3-border-pale-blue"
+,"w3-hover-border-red","w3-hover-border-pink","w3-hover-border-purple","w3-hover-border-deep-purple","w3-hover-border-indigo","w3-hover-border-blue","w3-hover-border-light-blue","w3-hover-border-cyan","w3-hover-border-aqua","w3-hover-border-teal","w3-hover-border-green","w3-hover-border-light-green","w3-hover-border-lime","w3-hover-border-sand","w3-hover-border-khaki","w3-hover-border-yellow","w3-hover-border-amber","w3-hover-border-orange","w3-hover-border-deep-orange","w3-hover-border-blue-grey","w3-hover-border-brown","w3-hover-border-light-grey","w3-hover-border-grey","w3-hover-border-dark-grey","w3-hover-border-black","w3-hover-border-pale-red","w3-hover-border-pale-yellow","w3-hover-border-pale-green","w3-hover-border-pale-blue"
+,"w3-panel","w3-card","w3-card-2","w3-card-4","w3-card-8","w3-card-12","w3-card-16","w3-card-24"
+,"w3-tiny","w3-small","w3-medium","w3-large","w3-xlarge","w3-xxlarge","w3-xxxlarge","w3-jumbo"
+,"w3-left-align","w3-right-align","w3-center","w3-wide","w3-slim","w3-text-shadow","w3-opacity"
+,"w3-round","w3-round-small","w3-round-medium","w3-round-large","w3-round-xlarge","w3-round-xxlarge","w3-round-jumbo","w3-circle"
+,"w3-padding-4","w3-padding-8","w3-padding-12","w3-padding-16","w3-padding-24","w3-padding-32","w3-padding-48","w3-padding-64","w3-padding-128","w3-padding-0"
+,"w3-padding","w3-padding-tiny","w3-padding-small","w3-padding-medium","w3-padding-large","w3-padding-xlarge","w3-padding-xxlarge","w3-padding-jumbo"
+,"w3-margin","w3-margin-top","w3-margin-right","w3-margin-bottom","w3-margin-left","w3-margin-0","w3-section"
+,"w3-display-container","w3-display-topleft","w3-display-topright","w3-display-bottomleft","w3-display-bottomright","w3-display-middle","w3-display-topmiddle","w3-display-bottommiddle"
+,"w3-btn","w3-serif","fa","fa-quote-right","w3-closebtn"
+,"w3-table","w3-striped","w3-border","w3-bordered","w3-centered","w3-hoverable","w3-table-all"
+,"w3-hover-opacity","w3-hover-opacity-off","w3-label","w3-input","w3-validate"
+,"w3-text-red","w3-text-pink","w3-text-purple","w3-text-deep-purple","w3-text-indigo","w3-text-blue","w3-text-light-blue","w3-text-cyan","w3-text-aqua","w3-text-teal","w3-text-green","w3-text-light-green","w3-text-lime","w3-text-sand","w3-text-khaki","w3-text-yellow","w3-text-amber","w3-text-orange","w3-text-deep-orange","w3-text-blue-grey","w3-text-brown","w3-text-light-grey","w3-text-grey","w3-text-dark-grey","w3-text-black","w3-text-pale-red","w3-text-pale-yellow","w3-text-pale-green","w3-text-pale-blue"
+,"w3-round","w3-animate-input","w3-half","w3-badge","w3-tag"
+,"fa fa-home","fa fa-bars","fa fa-arrow-left","fa fa-arrow-right","fa fa-search","fa fa-close","fa fa-refresh","fa fa-trash","fa fa-male","fa fa-car","fa fa-truck","fa fa-plane"
+};
+            foreach (string str in textArray1)
+            {
+                NavBarItem ContentsItem = navBarControl1.Items.Add();
+                ContentsItem.Caption = "Contents";
+                ContentsItem.Caption = str;
+                ContentsItem.LinkClicked += new NavBarLinkEventHandler(this.ContentsItem3_LinkClicked);
+                navBarGroup5.ItemLinks.Add(ContentsItem);
+            }
 
+            textArray1 = new string[]{
+                "navbar","caret","label","table","img-responsive","img-rounded","img-thumbnail","img-circle"
+,"sr-only","lead","text-muted","text-primary","text-warning","text-danger","text-success"
+,"text-info","text-left","text-right","text-center","h6","h1","h2","h3","h4","h5","page-header"
+,"list-unstyled","list-inline","initialism","pull-right","prettyprint","pre-scrollable","container"
+,"row","col-lg-12","col-xs-11","col-xs-1","col-xs-2","col-xs-3","col-xs-4","col-xs-5","col-xs-6"
+,"col-xs-7","col-xs-8","col-xs-9","col-xs-10","col-xs-12","col-sm-11","col-sm-1","col-sm-2"
+,"col-sm-3","col-sm-4","col-sm-5","col-sm-6","col-sm-7","col-sm-8","col-sm-9","col-sm-10"
+,"col-sm-12","col-sm-push-1","col-sm-push-2","col-sm-push-3","col-sm-push-4","col-sm-push-5"
+,"col-sm-push-6","col-sm-push-7","col-sm-push-8","col-sm-push-9","col-sm-push-10","col-sm-push-11"
+,"col-sm-pull-1","col-sm-pull-2","col-sm-pull-3","col-sm-pull-4","col-sm-pull-5","col-sm-pull-6"
+,"col-sm-pull-7","col-sm-pull-8","col-sm-pull-9","col-sm-pull-10","col-sm-pull-11","col-sm-offset-1"
+,"col-sm-offset-2","col-sm-offset-3","col-sm-offset-4","col-sm-offset-5","col-sm-offset-6"
+,"col-sm-offset-7","col-sm-offset-8","col-sm-offset-9","col-sm-offset-10","col-sm-offset-11"
+,"col-md-11","col-md-1","col-md-2","col-md-3","col-md-4","col-md-5","col-md-6","col-md-7","col-md-8"
+,"col-md-9","col-md-10","col-md-12","col-md-push-0","col-md-push-1","col-md-push-2","col-md-push-3","col-md-push-4"
+,"col-md-push-5","col-md-push-6","col-md-push-7","col-md-push-8","col-md-push-9","col-md-push-10"
+,"col-md-push-11","col-md-pull-0","col-md-pull-1","col-md-pull-2","col-md-pull-3","col-md-pull-4"
+,"col-md-pull-5","col-md-pull-6","col-md-pull-7","col-md-pull-8","col-md-pull-9","col-md-pull-10"
+,"col-md-pull-11","col-md-offset-0","col-md-offset-1","col-md-offset-2","col-md-offset-3","col-md-offset-4"
+,"col-md-offset-5","col-md-offset-6","col-md-offset-7","col-md-offset-8","col-md-offset-9","col-md-offset-10"
+,"col-md-offset-11","col-lg-11","col-lg-1","col-lg-2","col-lg-3","col-lg-4","col-lg-5","col-lg-6","col-lg-7"
+,"col-lg-8","col-lg-9","col-lg-10","col-lg-push-0","col-lg-push-1","col-lg-push-2","col-lg-push-3","col-lg-push-4"
+,"col-lg-push-5","col-lg-push-6","col-lg-push-7","col-lg-push-8","col-lg-push-9","col-lg-push-10","col-lg-push-11"
+,"col-lg-pull-0","col-lg-pull-1","col-lg-pull-2","col-lg-pull-3","col-lg-pull-4","col-lg-pull-5","col-lg-pull-6"
+,"col-lg-pull-7","col-lg-pull-8","col-lg-pull-9","col-lg-pull-10","col-lg-pull-11","col-lg-offset-0","col-lg-offset-1"
+,"col-lg-offset-2","col-lg-offset-3","col-lg-offset-4","col-lg-offset-5","col-lg-offset-6","col-lg-offset-7","col-lg-offset-8"
+,"col-lg-offset-9","col-lg-offset-10","col-lg-offset-11","table-bordered","table-responsive","form-control","form-group","checkbox"
+,"checkbox-inline","input-sm","input-lg","control-label","input-group-addon","form-control-static","help-block"
+,"btn","active","btn-default","btn-primary","btn-warning","btn-danger","btn-success","btn-info"
+,"btn-link","btn-lg","btn-xs","btn-block","fade","in","collapse","collapsing","glyphicon","dropdown"
+,"dropdown-menu","divider","dropdown-header","dropdown-backdrop","btn-group-vertical","btn-group"
+,"dropdown-toggle","btn-group-justified","input-group","col","input-group-btn","nav","nav-divider"
+,"nav-tabs","nav-justified","nav-tabs-justified","pill-pane","navbar-header","navbar-collapse","navbar-static-top"
+,"navbar-fixed-bottom","navbar-fixed-top","navbar-brand","navbar-toggle","icon-bar","navbar-nav","navbar-left"
+,"navbar-right","navbar-form","navbar-btn","navbar-text","navbar-default","navbar-link","navbar-inverse"
+,"breadcrumb","pagination","pager","label-default","label-primary","label-success","label-info","label-warning"
+,"label-danger","badge","jumbotron","thumbnail","caption","alert","alert-link","alert-dismissable","close"
+,"alert-success","alert-info","alert-warning","alert-danger","progress","progress-bar","progress-bar-success","progress-bar-info"
+,"progress-bar-warning","progress-bar-danger","media-body","media","media-object","media-heading","pull-left"
+,"media-list","list-group","list-group-item","list-group-item-heading","list-group-item-text"
+,"panel","panel-body","panel-heading","panel-title","panel-footer","panel-default","panel-primary"
+,"panel-success","panel-warning","panel-danger","panel-info","well","well-lg","well-sm","modal-open"
+,"modal","modal-dialog","modal-content","modal-backdrop","modal-header","modal-title","modal-body"
+,"modal-footer","tooltip","top","right","bottom","left","tooltip-inner","tooltip-arrow","popover"
+,"popover-title","popover-content","arrow","carousel","carousel-inner","item","prev","next","carousel-control","glyphicon-chevron-right","icon-next","carousel-indicators","carousel-caption","hide","show","invisible","text-hide","affix","hidden","visible-xs","visible-sm","visible-md","visible-lg","hidden-xs","hidden-sm","hidden-md","hidden-lg","visible-print","hidden-print"
+};
+            foreach (string str in textArray1)
+            {
+                NavBarItem ContentsItem = navBarControl1.Items.Add();
+                ContentsItem.Caption = "Contents";
+                ContentsItem.Caption = str;
+                ContentsItem.LinkClicked += new NavBarLinkEventHandler(this.ContentsItem2_LinkClicked);
+                navBarGroup4.ItemLinks.Add(ContentsItem);
+            }
+
+
+
+        }
+
+        private void ContentsItem3_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string str;
+            string str2;
+            if (!File.Exists(this.path + "\\css\\w3.css"))
+            {
+                if (File.Exists(Environment.CurrentDirectory + "\\Files\\w3.css"))
+                {
+                    File.Copy(Environment.CurrentDirectory + "\\Files\\w3.css", path + "\\css\\w3.css", true);
+                }
+            }
+            if (this.htmltext.SelectedText.Contains("<") && this.htmltext.SelectedText.Contains(">"))
+            {
+                this.htmltext.SelectedText = this.cssfun.applyclass(htmltext.SelectedText, e.Link.Caption);
+            }
+            else
+                MessageBox.Show("Invalid");
+            str = "<link rel = \"stylesheet\" type=\"text/css\" href=\"./css/w3.css\">";
+            if (!(htmltext.Text.Contains(str)))
+            {
+                this.htmltext.Text = this.htmltext.Text.Replace("</head>", "<link rel = \"stylesheet\" type=\"text/css\" href=\"./css/w3.css\">\n</head>");
+            }
+        }
+
+        private void ContentsItem2_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string str;
+            string str2;
+            if (!File.Exists(this.path + "\\css\\bootstrap.css"))
+            {
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap.css", path + "\\css\\bootstrap.css", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap.css.map", path + "\\css\\bootstrap.css.map", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap.min.css", path + "\\css\\bootstrap.min.css", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap.min.css.map", path + "\\css\\bootstrap.min.css.map", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap-theme.css", path + "\\css\\bootstrap-theme.css", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap-theme.css.map", path + "\\css\\bootstrap-theme.css.map", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap-theme.min.css", path + "\\css\\bootstrap-theme.min.css", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\bootstrap-theme.min.css.map", path + "\\css\\bootstrap-theme.min.css", true);
+
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\glyphicons-halflings-regular.eot", path + "\\fonts\\glyphicons-halflings-regular.eot", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\glyphicons-halflings-regular.svg", path + "\\fonts\\glyphicons-halflings-regular.svg", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\glyphicons-halflings-regular.ttf", path + "\\fonts\\glyphicons-halflings-regular.ttf", true);
+                File.Copy(Environment.CurrentDirectory + "\\Files\\boot\\glyphicons-halflings-regular.woff", path + "\\fonts\\glyphicons-halflings-regular.woff", true);
+
+            }
+            if (this.htmltext.SelectedText.Contains("<") && this.htmltext.SelectedText.Contains(">"))
+            {
+                this.htmltext.SelectedText = this.cssfun.applyclass(htmltext.SelectedText, e.Link.Caption);
+            }
+            else
+                MessageBox.Show("Invalid");
+            str = "<link rel = \"stylesheet\" type=\"text/css\" href=\"./css/bootstrap.min.css\">";
+            if (!(htmltext.Text.Contains(str)))
+            {
+                this.htmltext.Text = this.htmltext.Text.Replace("</head>", "<link rel = \"stylesheet\" type=\"text/css\" href=\"./css/bootstrap.min.css\">\n</head>");
+            }
+        }
+
+        private void ContentsItem_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string str;
+            string str2;
+            if (!File.Exists(this.path + "\\css\\animate.css"))
+            {
+                if (File.Exists(Environment.CurrentDirectory + "\\Files\\ani\\animate.css"))
+                {
+                    File.Copy(Environment.CurrentDirectory + "\\Files\\ani\\animate.css", path + "\\css\\animate.css", true);
+                }
+            }
+            str2 = htmltext.SelectedText.Replace("animated", "");
+                if (this.htmltext.SelectedText.Contains("<") && this.htmltext.SelectedText.Contains(">"))
+                {
+                    this.htmltext.SelectedText = this.cssfun.applyclass(str2, "animated " + e.Link.Caption);
+                }
+                else
+                    MessageBox.Show("Invalid");
+            str = "<link rel = \"stylesheet\" type=\"text/css\" href=\"./css/animate.css\">";
+            if (!(htmltext.Text.Contains(str)))
+            {
+                this.htmltext.Text = this.htmltext.Text.Replace("</head>", "<link rel = \"stylesheet\" type=\"text/css\" href=\"./css/animate.css\">\n</head>");
+            }
         }
 
         private void navBarControl1_Click(object sender, EventArgs e)
@@ -932,6 +1224,54 @@ namespace Easy_Web
             applaycss("font-style: italic;");
         }
 
+        private void Fontsize_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FontSize f = new FontSize();
+            f.Show();
+        }
+
+        private void backgroundrepeaty_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            applaycss("background-repeat:repeat-y;");
+        }
+
+        private void repeatx_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            applaycss("background-repeat:repeat-x;");
+        }
+
+        private void BackgroundRepeatno_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            applaycss("background-repeat:no-repeat;");
+        }
+
+        private void Borderwidth_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            borderwidth b = new borderwidth();
+            b.ShowDialog();
+        }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            opacity o = new opacity();
+            o.Show();
+        }
+
+        private void navBarItem3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            List<string> list = new List<string> ();
+            for (int i = 0; i < pfco; i++)
+            {
+
+                if (pf[i].path.Contains("jpg") || pf[i].path.Contains("png") | pf[i].path.Contains("bmp") | pf[i].name.Contains("gif"))
+                {
+                    list.Add(pf[i].path);
+                }
+            }
+            BImage j = new BImage(list.ToArray());
+            j.Show();
+        }
+
         public static string getBetween(string strSource, string strStart, string strEnd)
         {
             int Start, End;
@@ -946,31 +1286,107 @@ namespace Easy_Web
                 return null;
             }
         }
+
+        private void Form1_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {}
+
+        private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (IsWindows10())
+            {
+                if (CHTML != null)
+                {
+                    string url = (path + "\\" + CHTML);
+                    Process process = new Process();
+
+                    // Stop the process from opening a new window
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.CreateNoWindow = true;
+
+                    // Setup executable and parameters
+                    process.StartInfo.FileName = Environment.CurrentDirectory + "\\MIcrosoftEdgeLauncherCsharp.exe";
+                    process.StartInfo.Arguments = "\"" + url + "\"";
+
+                    // Go
+                    process.Start();
+
+                }
+            }
+            else
+                MessageBox.Show("Windows 10 is Required");
+        }
+
+        static bool IsWindows10()
+        {
+            var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+
+            string productName = (string)reg.GetValue("ProductName");
+
+            return productName.StartsWith("Windows 10");
+        }
+
+        private void barButtonItem21_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            barButtonItem20.PerformClick();
+        }
+
         public void applaycss(string cssvalue)
         {
-            string str = htmltext.SelectedText;
-            string[] css = csstext.Text.Split('.');
+            string str = htmltext.SelectedText; /// class name
+            string[] css = csstext.Text.Split('.'); // splite by class
+
+            string[] cssprop = cssvalue.Split(':');
+
             if (!(str == ""))
             {
-                if (csstext.Text.Contains(str))
+                if (csstext.Text.Contains(str))  // if csstext contain class
                 {
-                    for (int i = 0; i < css.Length; i++)
-                        if (css[i].Contains(str))
+                    for (int i = 0; i < css.Length; i++)  // for every evey class element in css
+                        if (css[i].Contains(str))  // if css element contan class
                         {
-                            string css2 = getBetween(css[i], "{", "}");
-                            if (!(css2.Contains(cssvalue)))
+                            string css2 = getBetween(css[i], "{", "}"); // get all propertys form css
+                            string[] css2prop = css2.Split(';');   // split prop in indvisual
+
+                            if (css2.Contains(cssprop[0]))
+                            {
+                                for(int p = 0; p < css2prop.Length;p++)
+                                {
+                                    if(css2prop[p].Contains(cssprop[0]))
+                                    {
+                                        css2prop[p] = cssvalue;
+                                    }
+                                }
+                                css2 = string.Empty;
+                                css2 += Environment.NewLine;
+                                foreach (string p in css2prop)
+                                {
+                                   // if(p != "")
+                                        css2 += p + ";";
+                                }
+                            }
+                            else
+                            {
                                 css2 += cssvalue + Environment.NewLine;
-                            //if()
+                            }
                             css[i] = str + "{" + css2 + "}";
                             break;
                         }
-                    csstext.Text = "";
+                    csstext.Text = string.Empty;
+                    string applycss = string.Empty;
                     foreach (string s in css)
-                        if (!(s == ""))
-                            csstext.Text += "." + s + Environment.NewLine;
+                        if (s.Contains("{"))
+                            applycss += "." + s;
+                    applycss.Replace(";;", ";");
+                    csstext.Text = applycss;
                 }
                 else
                 {
+                    /// if class not in csstext
                     csstext.Text += Environment.NewLine + "." + str + "{\n" + cssvalue + "\n}";
                 }
             }
@@ -979,39 +1395,6 @@ namespace Easy_Web
                 MessageBox.Show("Invalid Class");
             }
         }
-        //void applaycss(string csstoapplay)
-        //{
-        //    string str = htmltext.SelectedText;
-        //    string[] css = csstext.Text.Split('.');
-        //    if (!(str == ""))
-        //    {
-        //        if (csstext.Text.Contains(str))
-        //        {
-        //            for (int i = 0; i < css.Length; i++)
-        //                if (css[i].Contains(str))
-        //                {
-        //                    string css2 = getBetween(css[i], "{", "}");
-        //                    if (!(css2.Contains(csstoapplay)))
-        //                        css2 += csstoapplay + Environment.NewLine;
-        //                    css[i] = str + "{" + css2 + "}";
-        //                    break;
-        //                }
-        //            csstext.Text = "";
-        //            foreach (string s in css)
-        //                if (!(s == ""))
-        //                    csstext.Text += "." + s + Environment.NewLine;
-        //        }
-        //        else
-        //        {
-        //            csstext.Text += Environment.NewLine + "." + str + "{\n" + csstoapplay + "\n}";
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Invalid Class");
-        //    }
-        //}
-
         void updateautocompleat()
         {
             List<AutocompleteItem> items = new List<AutocompleteItem>();
@@ -1036,5 +1419,13 @@ namespace Easy_Web
 
             popupMenu.Items.SetAutocompleteItems(items);
         }
+        private void settabname()
+        {
+            tab.TabPages[0].Text = "Source[" + CHTML + "]";
+            tab.TabPages[1].Text = "CSS[" + CCSS + "]";
+            tab.TabPages[2].Text = "Live[" + CHTML + "]";
+        }
+
+
     }
 }

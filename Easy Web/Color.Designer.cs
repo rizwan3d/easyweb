@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Color));
             this.textcolor = new DevExpress.XtraEditors.CheckEdit();
             this.tcolor = new DevExpress.XtraEditors.ColorPickEdit();
             this.bcolor = new DevExpress.XtraEditors.ColorPickEdit();
@@ -166,12 +167,14 @@
             this.Controls.Add(this.backgroundcolor);
             this.Controls.Add(this.tcolor);
             this.Controls.Add(this.textcolor);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinMaskColor = System.Drawing.Color.Transparent;
             this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Color";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color";
             this.Load += new System.EventHandler(this.Color_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textcolor.Properties)).EndInit();

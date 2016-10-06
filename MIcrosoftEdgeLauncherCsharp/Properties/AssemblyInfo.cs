@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Easy_Web")]
-[assembly: AssemblyDescription("Easy Web Ide")]
+[assembly: AssemblyTitle("MIcrosoftEdgeLauncherCsharp")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SD SOFT")]
-[assembly: AssemblyProduct("Easy_Web")]
-[assembly: AssemblyCopyright("Copyright © SD Soft 2016")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("MIcrosoftEdgeLauncherCsharp")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9006f149-aa49-4b8e-ba69-386d945fa738")]
+[assembly: Guid("affcaefd-5cab-4491-8fad-4c4363b78528")]
 
 // Version information for an assembly consists of the following four values:
 //

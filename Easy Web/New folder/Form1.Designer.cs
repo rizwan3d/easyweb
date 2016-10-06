@@ -48,7 +48,6 @@
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.firefox = new DevExpress.XtraBars.BarButtonItem();
             this.Internet_Explorer = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.status = new DevExpress.XtraBars.BarStaticItem();
@@ -58,7 +57,6 @@
             this.bar6 = new DevExpress.XtraBars.Bar();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -99,13 +97,13 @@
             this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tab = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.ImageV = new DevExpress.XtraEditors.PictureEdit();
             this.panel2 = new DevExpress.XtraEditors.PanelControl();
             this.file_c = new DevExpress.XtraEditors.SimpleButton();
             this.file_ok = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.file_name_box = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.ImageV = new DevExpress.XtraEditors.PictureEdit();
             this.htmltext = new FastColoredTextBoxNS.FastColoredTextBox();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.csstext = new FastColoredTextBoxNS.FastColoredTextBox();
@@ -113,7 +111,6 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.documentMap1 = new FastColoredTextBoxNS.DocumentMap();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.commetns = new DevExpress.XtraNavBar.NavBarItem();
             this.h1 = new DevExpress.XtraNavBar.NavBarItem();
@@ -160,9 +157,8 @@
             this.BackgroundRepeatno = new DevExpress.XtraNavBar.NavBarItem();
             this.Borderwidth = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
+            this.BImag = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.classpanel = new DevExpress.XtraEditors.PanelControl();
@@ -196,10 +192,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tab)).BeginInit();
             this.tab.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.file_name_box.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.htmltext)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.csstext)).BeginInit();
@@ -262,11 +258,9 @@
             this.barEditItem2,
             this.barEditItem3,
             this.barEditItem4,
-            this.barWorkspaceMenuItem1,
-            this.barButtonItem20,
-            this.barButtonItem21});
+            this.barWorkspaceMenuItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 42;
+            this.barManager1.MaxItemId = 40;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemColorEdit1,
             this.repositoryItemTextEdit1,
@@ -398,8 +392,7 @@
             this.barSubItem3.Id = 12;
             this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.firefox),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Internet_Explorer),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem20)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.Internet_Explorer)});
             this.barSubItem3.Name = "barSubItem3";
             // 
             // firefox
@@ -415,13 +408,6 @@
             this.Internet_Explorer.Id = 22;
             this.Internet_Explorer.Name = "Internet_Explorer";
             this.Internet_Explorer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Internet_Explorer_ItemClick);
-            // 
-            // barButtonItem20
-            // 
-            this.barButtonItem20.Caption = "Edge";
-            this.barButtonItem20.Id = 40;
-            this.barButtonItem20.Name = "barButtonItem20";
-            this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
             // 
             // barSubItem5
             // 
@@ -463,12 +449,14 @@
             // 
             // barButtonItem13
             // 
+            this.barButtonItem13.Caption = "barButtonItem13";
             this.barButtonItem13.Id = 25;
             this.barButtonItem13.ImageUri.Uri = "Undo";
             this.barButtonItem13.Name = "barButtonItem13";
             // 
             // barButtonItem14
             // 
+            this.barButtonItem14.Caption = "barButtonItem14";
             this.barButtonItem14.Id = 26;
             this.barButtonItem14.ImageUri.Uri = "Redo";
             this.barButtonItem14.Name = "barButtonItem14";
@@ -481,14 +469,14 @@
             this.bar6.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem15),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem16),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem21)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem16)});
             this.bar6.Offset = 244;
             this.bar6.Text = "Custom 6";
             // 
             // barButtonItem15
             // 
             this.barButtonItem15.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.barButtonItem15.Caption = "barButtonItem15";
             this.barButtonItem15.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.Glyph")));
             this.barButtonItem15.Id = 27;
             this.barButtonItem15.Name = "barButtonItem15";
@@ -496,17 +484,11 @@
             // 
             // barButtonItem16
             // 
+            this.barButtonItem16.Caption = "barButtonItem16";
             this.barButtonItem16.Glyph = global::Easy_Web.Properties.Resources.Logos_Internet_Explorer_icon;
             this.barButtonItem16.Id = 28;
             this.barButtonItem16.Name = "barButtonItem16";
             this.barButtonItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem16_ItemClick);
-            // 
-            // barButtonItem21
-            // 
-            this.barButtonItem21.Glyph = global::Easy_Web.Properties.Resources.edge;
-            this.barButtonItem21.Id = 41;
-            this.barButtonItem21.Name = "barButtonItem21";
-            this.barButtonItem21.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem21_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -694,6 +676,7 @@
             this.html_file_list.Size = new System.Drawing.Size(170, 84);
             this.html_file_list.TabIndex = 0;
             this.html_file_list.SelectedIndexChanged += new System.EventHandler(this.html_file_list_SelectedIndexChanged);
+            this.html_file_list.Click += new System.EventHandler(this.html_file_list_Click);
             // 
             // Listicon
             // 
@@ -728,6 +711,7 @@
             this.css_file_list.Size = new System.Drawing.Size(170, 87);
             this.css_file_list.TabIndex = 1;
             this.css_file_list.SelectedIndexChanged += new System.EventHandler(this.css_file_list_SelectedIndexChanged);
+            this.css_file_list.Click += new System.EventHandler(this.css_file_list_Click);
             this.css_file_list.DoubleClick += new System.EventHandler(this.css_file_list_DoubleClick);
             // 
             // iame_file_list
@@ -744,6 +728,7 @@
             this.iame_file_list.TabIndex = 2;
             this.iame_file_list.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.iame_file_list.SelectedIndexChanged += new System.EventHandler(this.iame_file_list_SelectedIndexChanged);
+            this.iame_file_list.Click += new System.EventHandler(this.iame_file_list_Click);
             this.iame_file_list.DoubleClick += new System.EventHandler(this.iame_file_list_DoubleClick);
             // 
             // font_file_list
@@ -869,34 +854,13 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.panel2);
             this.xtraTabPage1.Controls.Add(this.simpleButton1);
             this.xtraTabPage1.Controls.Add(this.ImageV);
-            this.xtraTabPage1.Controls.Add(this.panel2);
             this.xtraTabPage1.Controls.Add(this.htmltext);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(466, 557);
-            this.xtraTabPage1.Text = "Source[]";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(430, 43);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(29, 29);
-            this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "X";
-            this.simpleButton1.Visible = false;
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
-            // 
-            // ImageV
-            // 
-            this.ImageV.Location = new System.Drawing.Point(0, 38);
-            this.ImageV.MenuManager = this.barManager1;
-            this.ImageV.Name = "ImageV";
-            this.ImageV.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.ImageV.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.ImageV.Size = new System.Drawing.Size(466, 363);
-            this.ImageV.TabIndex = 3;
-            this.ImageV.Visible = false;
+            this.xtraTabPage1.Text = "Source";
             // 
             // panel2
             // 
@@ -916,7 +880,7 @@
             this.file_c.Name = "file_c";
             this.file_c.Size = new System.Drawing.Size(75, 23);
             this.file_c.TabIndex = 3;
-            this.file_c.Text = "Cancle";
+            this.file_c.Text = "Cancel";
             this.file_c.Click += new System.EventHandler(this.file_c_Click);
             // 
             // file_ok
@@ -944,6 +908,29 @@
             this.file_name_box.Name = "file_name_box";
             this.file_name_box.Size = new System.Drawing.Size(162, 20);
             this.file_name_box.TabIndex = 0;
+            this.file_name_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.file_name_box_KeyPress);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(430, 43);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(29, 29);
+            this.simpleButton1.TabIndex = 4;
+            this.simpleButton1.Text = "X";
+            this.simpleButton1.Visible = false;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
+            // 
+            // ImageV
+            // 
+            this.ImageV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ImageV.Location = new System.Drawing.Point(0, 38);
+            this.ImageV.MenuManager = this.barManager1;
+            this.ImageV.Name = "ImageV";
+            this.ImageV.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.ImageV.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.ImageV.Size = new System.Drawing.Size(466, 363);
+            this.ImageV.TabIndex = 3;
+            this.ImageV.Visible = false;
             // 
             // htmltext
             // 
@@ -990,13 +977,15 @@
             this.htmltext.Size = new System.Drawing.Size(466, 557);
             this.htmltext.TabIndex = 1;
             this.htmltext.Zoom = 100;
+            this.htmltext.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.htmltext_TextChanged);
+            this.htmltext.Load += new System.EventHandler(this.htmltext_Load);
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.csstext);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(466, 541);
-            this.xtraTabPage2.Text = "CSS[]";
+            this.xtraTabPage2.Size = new System.Drawing.Size(466, 557);
+            this.xtraTabPage2.Text = "CSS";
             // 
             // csstext
             // 
@@ -1031,7 +1020,7 @@
             this.csstext.Paddings = new System.Windows.Forms.Padding(0);
             this.csstext.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.csstext.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("csstext.ServiceColors")));
-            this.csstext.Size = new System.Drawing.Size(466, 541);
+            this.csstext.Size = new System.Drawing.Size(466, 557);
             this.csstext.TabIndex = 1;
             this.csstext.Zoom = 100;
             this.csstext.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.csstext_TextChanged);
@@ -1040,8 +1029,8 @@
             // 
             this.xtraTabPage3.Controls.Add(this.webBrowser1);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(466, 541);
-            this.xtraTabPage3.Text = "Live[]";
+            this.xtraTabPage3.Size = new System.Drawing.Size(466, 557);
+            this.xtraTabPage3.Text = "Live";
             // 
             // webBrowser1
             // 
@@ -1050,7 +1039,7 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(466, 541);
+            this.webBrowser1.Size = new System.Drawing.Size(466, 557);
             this.webBrowser1.TabIndex = 1;
             // 
             // documentMap1
@@ -1067,15 +1056,13 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup1;
+            this.navBarControl1.ActiveGroup = this.navBarGroup3;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Enabled = false;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
             this.navBarGroup2,
-            this.navBarGroup3,
-            this.navBarGroup4,
-            this.navBarGroup5});
+            this.navBarGroup3});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.h1,
             this.h2,
@@ -1121,7 +1108,7 @@
             this.BackgroundRepeatno,
             this.Borderwidth,
             this.navBarItem2,
-            this.navBarItem3});
+            this.BImag});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 186;
@@ -1131,16 +1118,9 @@
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
             // 
-            // navBarGroup4
-            // 
-            this.navBarGroup4.Caption = "Bootstrap";
-            this.navBarGroup4.Expanded = true;
-            this.navBarGroup4.Name = "navBarGroup4";
-            // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "HTML";
-            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.commetns),
             new DevExpress.XtraNavBar.NavBarItemLink(this.h1),
@@ -1171,6 +1151,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.dropdownlist),
             new DevExpress.XtraNavBar.NavBarItemLink(this.option)});
             this.navBarGroup1.Name = "navBarGroup1";
+            this.navBarGroup1.TopVisibleLinkIndex = 12;
             // 
             // commetns
             // 
@@ -1360,7 +1341,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.BackgroundRepeatno),
             new DevExpress.XtraNavBar.NavBarItemLink(this.Borderwidth),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.BImag)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
             // addclass
@@ -1459,21 +1440,17 @@
             this.navBarItem2.Name = "navBarItem2";
             this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
-            // navBarItem3
+            // BImag
             // 
-            this.navBarItem3.Caption = "Background Image";
-            this.navBarItem3.Name = "navBarItem3";
-            this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
+            this.BImag.Caption = "Background Image";
+            this.BImag.Name = "BImag";
+            this.BImag.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.BImage_LinkClicked);
             // 
             // navBarGroup3
             // 
             this.navBarGroup3.Caption = "Animate.css";
+            this.navBarGroup3.Expanded = true;
             this.navBarGroup3.Name = "navBarGroup3";
-            // 
-            // navBarGroup5
-            // 
-            this.navBarGroup5.Caption = "W3.CSS";
-            this.navBarGroup5.Name = "navBarGroup5";
             // 
             // bar4
             // 
@@ -1510,7 +1487,7 @@
             this.calsscancel.Name = "calsscancel";
             this.calsscancel.Size = new System.Drawing.Size(57, 23);
             this.calsscancel.TabIndex = 3;
-            this.calsscancel.Text = "Cancle";
+            this.calsscancel.Text = "Cancel";
             this.calsscancel.Click += new System.EventHandler(this.calsscancel_Click);
             // 
             // labelControl1
@@ -1537,6 +1514,7 @@
             this.classname.Name = "classname";
             this.classname.Size = new System.Drawing.Size(144, 20);
             this.classname.TabIndex = 0;
+            this.classname.KeyUp += new System.Windows.Forms.KeyEventHandler(this.classname_KeyUp);
             // 
             // Form1
             // 
@@ -1549,15 +1527,12 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Web";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseHover += new System.EventHandler(this.Form1_MouseHover);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
@@ -1585,11 +1560,11 @@
             this.tab.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.file_name_box.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.htmltext)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.csstext)).EndInit();
@@ -1634,7 +1609,7 @@
         private DevExpress.XtraEditors.ImageListBoxControl html_file_list;
         private DevExpress.Utils.ImageCollection Listicon;
         private DevExpress.XtraEditors.ImageListBoxControl css_file_list;
-        public DevExpress.XtraEditors.ImageListBoxControl iame_file_list;
+        public  DevExpress.XtraEditors.ImageListBoxControl iame_file_list;
         private DevExpress.XtraEditors.ImageListBoxControl font_file_list;
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
@@ -1740,12 +1715,8 @@
         private DevExpress.XtraNavBar.NavBarItem BackgroundRepeatno;
         private DevExpress.XtraNavBar.NavBarItem Borderwidth;
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
+        private DevExpress.XtraNavBar.NavBarItem BImag;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem21;
     }
 }
 
