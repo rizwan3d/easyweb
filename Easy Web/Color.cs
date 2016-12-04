@@ -36,16 +36,37 @@ namespace Easy_Web
         private void apply_Click(object sender, EventArgs e)
         {
             Form f = Application.OpenForms["Form1"];
-            if(textcolor.Checked)
-                ((Form1)f).applaycss("color:" + HexConverter(tcolor.Color) + ";");
-            if(backgroundcolor.Checked)
-                ((Form1)f).applaycss("background-color:" + HexConverter(bcolor.Color) + ";");
+            if (textcolor.Checked)
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);                              ;
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "color", HexConverter(tcolor.Color));
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
+            if (backgroundcolor.Checked)
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "background-color", HexConverter(bcolor.Color));
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
             if (border.Checked)
-                ((Form1)f).applaycss("background-color:" + HexConverter(borcolor.Color) + ";");
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "border-color", HexConverter(borcolor.Color));
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
             if (outlinecolor.Checked)
-                ((Form1)f).applaycss("background-color:" + HexConverter(ocolor.Color) + ";");
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "outline-color", HexConverter(ocolor.Color));
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
             if (textdecorationcolor.Checked)
-                ((Form1)f).applaycss("background-color:" + HexConverter(tdcolor.Color) + ";");
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "text-decoration-color", HexConverter(tdcolor.Color));
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "-moz-text-decoration-color", HexConverter(tdcolor.Color));
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
             this.Close();
         }
         

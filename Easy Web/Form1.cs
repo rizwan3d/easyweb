@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using MIcrosoftEdgeLauncherCsharp;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
 
 namespace Easy_Web
 {
@@ -25,25 +24,25 @@ namespace Easy_Web
     {
 
         // This function does all the work
-        [DllImport("Trial.dll", EntryPoint = "ReadSettingsStr", CharSet = CharSet.Ansi)]
-        static extern uint InitTrial(String aKeyCode, IntPtr aHWnd);
+       // [DllImport("Trial.dll", EntryPoint = "ReadSettingsStr", CharSet = CharSet.Ansi)]
+       // static extern uint InitTrial(String aKeyCode, IntPtr aHWnd);
 
         // Use this function to register the application when the application is running
-        [DllImport("Trial.dll", EntryPoint = "DisplayRegistrationStr", CharSet = CharSet.Ansi)]
-        static extern uint DisplayRegistration(String aKeyCode, IntPtr aHWnd);
+       // [DllImport("Trial.dll", EntryPoint = "DisplayRegistrationStr", CharSet = CharSet.Ansi)]
+       // static extern uint DisplayRegistration(String aKeyCode, IntPtr aHWnd);
 
         // Use this function to silently register the license without displaying our registration dialog; when called the function saves the license (without validating it) on local machine and returns 0 for success or a different exit code otherwise
-        [DllImport("Trial.dll", EntryPoint = "RegisterStr", CharSet = CharSet.Unicode)]
-        static extern uint RegisterLicense(String aKeyCode, String aLicense);
+       // [DllImport("Trial.dll", EntryPoint = "RegisterStr", CharSet = CharSet.Unicode)]
+       // static extern uint RegisterLicense(String aKeyCode, String aLicense);
 
-        private const string kLibraryKey = "A6141A5B7BC0F9839795C56DA9FD870FD0C506";
+       // private const string kLibraryKey = "A6141A5B7BC0F9839795C56DA9FD870FD0C506";
 
         private static void OnInit()
         {
             //try
             //{
-                Process process = Process.GetCurrentProcess();                
-                InitTrial(kLibraryKey, process.MainWindowHandle);
+                //Process process = Process.GetCurrentProcess();                
+                //InitTrial(kLibraryKey, process.MainWindowHandle);
             //}
             //catch (DllNotFoundException ex)
             //{
@@ -60,8 +59,8 @@ namespace Easy_Web
         // Function called from the application menu, when registering it
         private void RegisterApp(object sender, EventArgs e)
         {
-            Process process = Process.GetCurrentProcess();
-            DisplayRegistration(kLibraryKey, process.MainWindowHandle);
+        ///    Process process = Process.GetCurrentProcess();
+        //    DisplayRegistration(kLibraryKey, process.MainWindowHandle);
         }
 
 
@@ -171,6 +170,8 @@ namespace Easy_Web
         private bool firstrun = true;
         private bool projopend;
         private cssfunctions cssfun = new cssfunctions();
+
+        public CSSPARSER parser; 
 
         private void open_project_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -694,6 +695,7 @@ namespace Easy_Web
                 status.Caption = "CSS File Added";
             }
         }
+        
         private void font_file_list_DoubleClick(object sender, EventArgs e)
         {
             if (font_file_list.SelectedItem != null)
@@ -961,7 +963,10 @@ namespace Easy_Web
         }
         private void bold_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            applaycss("font-weight: bold;");
+            string str = htmltext.SelectedText;
+            parser.SetCSS(csstext.Text);
+            parser.AddPropery(str, "font-weight", "bold");
+            csstext.Text = parser.ToString();
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -1020,6 +1025,7 @@ namespace Easy_Web
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            parser = new CSSPARSER();
             OnInit();
             string[] textArray1 = new string[] {
        "bounce", "flash", "pulse", "rubberBand", "shake", "headShake", "swing", "tada", "wobble", "jello", "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp", "bounceOut",
@@ -1121,7 +1127,7 @@ namespace Easy_Web
                 navBarGroup4.ItemLinks.Add(ContentsItem);
             }
 
-
+            this.WindowState = FormWindowState.Maximized;
 
         }
 
@@ -1215,13 +1221,19 @@ namespace Easy_Web
 
         private void FontWeightNormal_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            applaycss("font-weight: normal;");
+            string str = htmltext.SelectedText;
+            parser.SetCSS(csstext.Text);
+            parser.AddPropery(str, "font-weight", "normal");
+            csstext.Text = parser.ToString();
 
         }
 
         private void italic_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            applaycss("font-style: italic;");
+            string str = htmltext.SelectedText;
+            parser.SetCSS(csstext.Text);
+            parser.AddPropery(str, "font-style", "italic");
+            csstext.Text = parser.ToString();
         }
 
         private void Fontsize_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -1232,17 +1244,26 @@ namespace Easy_Web
 
         private void backgroundrepeaty_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            applaycss("background-repeat:repeat-y;");
+            string str = htmltext.SelectedText;
+            parser.SetCSS(csstext.Text);
+            parser.AddPropery(str, "background-repeat", "repeat-y");
+            csstext.Text = parser.ToString();
         }
 
         private void repeatx_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            applaycss("background-repeat:repeat-x;");
+            string str = htmltext.SelectedText;
+            parser.SetCSS(csstext.Text);
+            parser.AddPropery(str, "background-repeat", "repeat-x");
+            csstext.Text = parser.ToString();
         }
 
         private void BackgroundRepeatno_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            applaycss("background-repeat:no-repeat;");
+            string str = htmltext.SelectedText;
+            parser.SetCSS(csstext.Text);
+            parser.AddPropery(str, "background-repeat", "no-repeat");
+            csstext.Text = parser.ToString(); 
         }
 
         private void Borderwidth_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -1335,66 +1356,25 @@ namespace Easy_Web
             barButtonItem20.PerformClick();
         }
 
-        public void applaycss(string cssvalue)
+        private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string str = htmltext.SelectedText; /// class name
-            string[] css = csstext.Text.Split('.'); // splite by class
-
-            string[] cssprop = cssvalue.Split(':');
-
-            if (!(str == ""))
-            {
-                if (csstext.Text.Contains(str))  // if csstext contain class
-                {
-                    for (int i = 0; i < css.Length; i++)  // for every evey class element in css
-                        if (css[i].Contains(str))  // if css element contan class
-                        {
-                            string css2 = getBetween(css[i], "{", "}"); // get all propertys form css
-                            string[] css2prop = css2.Split(';');   // split prop in indvisual
-
-                            if (css2.Contains(cssprop[0]))
-                            {
-                                for(int p = 0; p < css2prop.Length;p++)
-                                {
-                                    if(css2prop[p].Contains(cssprop[0]))
-                                    {
-                                        css2prop[p] = cssvalue;
-                                    }
-                                }
-                                css2 = string.Empty;
-                                css2 += Environment.NewLine;
-                                foreach (string p in css2prop)
-                                {
-                                   // if(p != "")
-                                        css2 += p + ";";
-                                }
-                            }
-                            else
-                            {
-                                css2 += cssvalue + Environment.NewLine;
-                            }
-                            css[i] = str + "{" + css2 + "}";
-                            break;
-                        }
-                    csstext.Text = string.Empty;
-                    string applycss = string.Empty;
-                    foreach (string s in css)
-                        if (s.Contains("{"))
-                            applycss += "." + s;
-                    applycss.Replace(";;", ";");
-                    csstext.Text = applycss;
-                }
-                else
-                {
-                    /// if class not in csstext
-                    csstext.Text += Environment.NewLine + "." + str + "{\n" + cssvalue + "\n}";
-                }
-            }
-            else
-            {
-                MessageBox.Show("Invalid Class");
-            }
+            if (tab.SelectedTabPage.Text == "Source")
+                htmltext.ShowGoToDialog();
+            if (tab.SelectedTabPage.Text == "CSS")
+                csstext.ShowGoToDialog();
         }
+        private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            shotcutkeys s = new shotcutkeys();
+            s.ShowDialog();
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            splitContainerControl1.SplitterPosition = this.Width - 330;
+        }
+
+  
         void updateautocompleat()
         {
             List<AutocompleteItem> items = new List<AutocompleteItem>();

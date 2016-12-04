@@ -28,7 +28,9 @@ namespace Easy_Web
         private void button1_Click(object sender, EventArgs e)
         {
             Form f = Application.OpenForms["Form1"];
-                ((Form1)f).applaycss("font-size:" + textEdit1.Text + comboBoxEdit1.Text+  ";");
+            ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+            ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText,"font-size", textEdit1.Text + comboBoxEdit1.Text);
+            ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
             this.Close();       
         }
 

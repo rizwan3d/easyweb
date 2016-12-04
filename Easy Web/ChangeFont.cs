@@ -56,9 +56,17 @@ namespace Easy_Web
         {
             Form f = Application.OpenForms["Form1"];
             if (radioGroup1.SelectedIndex == 1)
-                ((Form1)f).applaycss("font-family:\"" + textEdit1.Text + "\";");
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "font-family", "\"" + textEdit1.Text + "\"");
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
             else
-                ((Form1)f).applaycss("font-family:\"" + fontEdit1.Text + "\";");
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "font-family", "\"" + fontEdit1.Text + "\"");
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
             this.Close();
         }
     }

@@ -29,9 +29,10 @@ namespace Easy_Web
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            Form f = Application.OpenForms["Form1"];           
-            ((Form1)f).applaycss("opacity:" + op + ";");
-            
+            Form f = Application.OpenForms["Form1"];
+            ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+            ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "opacity" ,op.ToString());
+            ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
             this.Close();
         }
 

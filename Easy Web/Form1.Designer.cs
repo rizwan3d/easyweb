@@ -45,11 +45,13 @@
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.firefox = new DevExpress.XtraBars.BarButtonItem();
             this.Internet_Explorer = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.status = new DevExpress.XtraBars.BarStaticItem();
             this.bar5 = new DevExpress.XtraBars.Bar();
@@ -84,7 +86,13 @@
             this.barEditItem4 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemOfficeColorPickEdit1 = new DevExpress.Office.UI.RepositoryItemOfficeColorPickEdit();
             this.barWorkspaceMenuItem1 = new DevExpress.XtraBars.BarWorkspaceMenuItem();
+            this.barEditItem5 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
+            this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
             this.repositoryItemColorPickEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorPickEdit();
+            this.repositoryItemZoomTrackBar2 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.html_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
             this.Listicon = new DevExpress.Utils.ImageCollection(this.components);
             this.list_menu = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -96,7 +104,6 @@
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tab = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -111,9 +118,9 @@
             this.csstext = new FastColoredTextBoxNS.FastColoredTextBox();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
             this.documentMap1 = new FastColoredTextBoxNS.DocumentMap();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.commetns = new DevExpress.XtraNavBar.NavBarItem();
             this.h1 = new DevExpress.XtraNavBar.NavBarItem();
@@ -162,6 +169,7 @@
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -174,7 +182,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemOfficeColorPickEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorPickEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.html_file_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Listicon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.list_menu)).BeginInit();
@@ -191,8 +203,6 @@
             this.splitContainerControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
             this.splitContainerControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).BeginInit();
-            this.splitContainerControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tab)).BeginInit();
             this.tab.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -204,6 +214,8 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.csstext)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl7)).BeginInit();
+            this.splitContainerControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classpanel)).BeginInit();
             this.classpanel.SuspendLayout();
@@ -264,14 +276,22 @@
             this.barEditItem4,
             this.barWorkspaceMenuItem1,
             this.barButtonItem20,
-            this.barButtonItem21});
+            this.barButtonItem21,
+            this.barButtonItem22,
+            this.barEditItem5,
+            this.barDockingMenuItem1,
+            this.barButtonItem23});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 42;
+            this.barManager1.MaxItemId = 51;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemColorEdit1,
             this.repositoryItemTextEdit1,
             this.repositoryItemColorPickEdit1,
-            this.repositoryItemOfficeColorPickEdit1});
+            this.repositoryItemOfficeColorPickEdit1,
+            this.repositoryItemZoomTrackBar1,
+            this.repositoryItemZoomTrackBar2,
+            this.repositoryItemTextEdit2,
+            this.repositoryItemTrackBar1});
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -375,7 +395,8 @@
             this.barSubItem2.Id = 10;
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem17),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem18)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem18),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem22)});
             this.barSubItem2.Name = "barSubItem2";
             // 
             // barButtonItem17
@@ -391,6 +412,13 @@
             this.barButtonItem18.Id = 31;
             this.barButtonItem18.Name = "barButtonItem18";
             this.barButtonItem18.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem18_ItemClick);
+            // 
+            // barButtonItem22
+            // 
+            this.barButtonItem22.Caption = "GoTo";
+            this.barButtonItem22.Id = 42;
+            this.barButtonItem22.Name = "barButtonItem22";
+            this.barButtonItem22.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem22_ItemClick);
             // 
             // barSubItem3
             // 
@@ -427,7 +455,16 @@
             // 
             this.barSubItem5.Caption = "&Help";
             this.barSubItem5.Id = 14;
+            this.barSubItem5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem23)});
             this.barSubItem5.Name = "barSubItem5";
+            // 
+            // barButtonItem23
+            // 
+            this.barButtonItem23.Caption = "Shotcut Keys";
+            this.barButtonItem23.Id = 50;
+            this.barButtonItem23.Name = "barButtonItem23";
+            this.barButtonItem23.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
             // 
             // bar3
             // 
@@ -513,14 +550,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(950, 53);
+            this.barDockControlTop.Size = new System.Drawing.Size(1026, 53);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 637);
-            this.barDockControlBottom.Size = new System.Drawing.Size(950, 25);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1026, 25);
             // 
             // barDockControlLeft
             // 
@@ -533,7 +570,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(950, 53);
+            this.barDockControlRight.Location = new System.Drawing.Point(1026, 53);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 584);
             // 
             // barButtonItem1
@@ -674,12 +711,48 @@
             this.barWorkspaceMenuItem1.Id = 39;
             this.barWorkspaceMenuItem1.Name = "barWorkspaceMenuItem1";
             // 
+            // barEditItem5
+            // 
+            this.barEditItem5.Caption = "barEditItem5";
+            this.barEditItem5.Edit = this.repositoryItemZoomTrackBar1;
+            this.barEditItem5.Id = 43;
+            this.barEditItem5.Name = "barEditItem5";
+            // 
+            // repositoryItemZoomTrackBar1
+            // 
+            this.repositoryItemZoomTrackBar1.Middle = 5;
+            this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
+            this.repositoryItemZoomTrackBar1.ScrollThumbStyle = DevExpress.XtraEditors.Repository.ScrollThumbStyle.ArrowDownRight;
+            // 
+            // barDockingMenuItem1
+            // 
+            this.barDockingMenuItem1.Caption = "barDockingMenuItem1";
+            this.barDockingMenuItem1.Id = 46;
+            this.barDockingMenuItem1.Name = "barDockingMenuItem1";
+            // 
             // repositoryItemColorPickEdit1
             // 
             this.repositoryItemColorPickEdit1.AutoHeight = false;
             this.repositoryItemColorPickEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemColorPickEdit1.Name = "repositoryItemColorPickEdit1";
+            // 
+            // repositoryItemZoomTrackBar2
+            // 
+            this.repositoryItemZoomTrackBar2.Middle = 5;
+            this.repositoryItemZoomTrackBar2.Name = "repositoryItemZoomTrackBar2";
+            this.repositoryItemZoomTrackBar2.ScrollThumbStyle = DevExpress.XtraEditors.Repository.ScrollThumbStyle.ArrowDownRight;
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // repositoryItemTrackBar1
+            // 
+            this.repositoryItemTrackBar1.LabelAppearance.Options.UseTextOptions = true;
+            this.repositoryItemTrackBar1.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.repositoryItemTrackBar1.Name = "repositoryItemTrackBar1";
             // 
             // html_file_list
             // 
@@ -767,9 +840,9 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.navBarControl1);
+            this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl7);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(950, 584);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1026, 584);
             this.splitContainerControl1.SplitterPosition = 752;
             this.splitContainerControl1.TabIndex = 4;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -781,7 +854,7 @@
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl2.Panel1.Text = "Panel1";
-            this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl6);
+            this.splitContainerControl2.Panel2.Controls.Add(this.tab);
             this.splitContainerControl2.Panel2.Text = "Panel2";
             this.splitContainerControl2.Size = new System.Drawing.Size(752, 584);
             this.splitContainerControl2.SplitterPosition = 174;
@@ -837,29 +910,14 @@
             this.splitContainerControl5.TabIndex = 2;
             this.splitContainerControl5.Text = "splitContainerControl5";
             // 
-            // splitContainerControl6
-            // 
-            this.splitContainerControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl6.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl6.Name = "splitContainerControl6";
-            this.splitContainerControl6.Panel1.Controls.Add(this.tab);
-            this.splitContainerControl6.Panel1.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.splitContainerControl6.Panel1.Text = "Panel1";
-            this.splitContainerControl6.Panel2.Controls.Add(this.documentMap1);
-            this.splitContainerControl6.Panel2.Text = "Panel2";
-            this.splitContainerControl6.Size = new System.Drawing.Size(566, 584);
-            this.splitContainerControl6.SplitterPosition = 472;
-            this.splitContainerControl6.TabIndex = 0;
-            this.splitContainerControl6.Text = "splitContainerControl6";
-            // 
             // tab
             // 
             this.tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab.Enabled = false;
-            this.tab.Location = new System.Drawing.Point(4, 0);
+            this.tab.Location = new System.Drawing.Point(0, 0);
             this.tab.Name = "tab";
             this.tab.SelectedTabPage = this.xtraTabPage1;
-            this.tab.Size = new System.Drawing.Size(468, 584);
+            this.tab.Size = new System.Drawing.Size(566, 584);
             this.tab.TabIndex = 0;
             this.tab.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -874,7 +932,7 @@
             this.xtraTabPage1.Controls.Add(this.panel2);
             this.xtraTabPage1.Controls.Add(this.htmltext);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(466, 557);
+            this.xtraTabPage1.Size = new System.Drawing.Size(564, 557);
             this.xtraTabPage1.Text = "Source[]";
             // 
             // simpleButton1
@@ -974,7 +1032,6 @@
             this.htmltext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.htmltext.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
             this.htmltext.FoldingIndicatorColor = System.Drawing.Color.Crimson;
-            this.htmltext.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.htmltext.ForeColor = System.Drawing.Color.White;
             this.htmltext.IsReplaceMode = false;
             this.htmltext.Language = FastColoredTextBoxNS.Language.HTML;
@@ -987,7 +1044,7 @@
             this.htmltext.RightBracket2 = ')';
             this.htmltext.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.htmltext.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("htmltext.ServiceColors")));
-            this.htmltext.Size = new System.Drawing.Size(466, 557);
+            this.htmltext.Size = new System.Drawing.Size(564, 557);
             this.htmltext.TabIndex = 1;
             this.htmltext.Zoom = 100;
             // 
@@ -995,7 +1052,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.csstext);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(466, 541);
+            this.xtraTabPage2.Size = new System.Drawing.Size(564, 557);
             this.xtraTabPage2.Text = "CSS[]";
             // 
             // csstext
@@ -1023,7 +1080,6 @@
             this.csstext.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.csstext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.csstext.FoldingIndicatorColor = System.Drawing.Color.Crimson;
-            this.csstext.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.csstext.ForeColor = System.Drawing.Color.White;
             this.csstext.IsReplaceMode = false;
             this.csstext.Location = new System.Drawing.Point(0, 0);
@@ -1031,7 +1087,7 @@
             this.csstext.Paddings = new System.Windows.Forms.Padding(0);
             this.csstext.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.csstext.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("csstext.ServiceColors")));
-            this.csstext.Size = new System.Drawing.Size(466, 541);
+            this.csstext.Size = new System.Drawing.Size(564, 557);
             this.csstext.TabIndex = 1;
             this.csstext.Zoom = 100;
             this.csstext.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.csstext_TextChanged);
@@ -1040,7 +1096,7 @@
             // 
             this.xtraTabPage3.Controls.Add(this.webBrowser1);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(466, 541);
+            this.xtraTabPage3.Size = new System.Drawing.Size(564, 557);
             this.xtraTabPage3.Text = "Live[]";
             // 
             // webBrowser1
@@ -1050,8 +1106,21 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(466, 541);
+            this.webBrowser1.Size = new System.Drawing.Size(564, 557);
             this.webBrowser1.TabIndex = 1;
+            // 
+            // splitContainerControl7
+            // 
+            this.splitContainerControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl7.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl7.Name = "splitContainerControl7";
+            this.splitContainerControl7.Panel1.Controls.Add(this.documentMap1);
+            this.splitContainerControl7.Panel1.Text = "Panel1";
+            this.splitContainerControl7.Panel2.Controls.Add(this.navBarControl1);
+            this.splitContainerControl7.Panel2.Text = "Panel2";
+            this.splitContainerControl7.Size = new System.Drawing.Size(262, 584);
+            this.splitContainerControl7.TabIndex = 3;
+            this.splitContainerControl7.Text = "splitContainerControl7";
             // 
             // documentMap1
             // 
@@ -1060,7 +1129,7 @@
             this.documentMap1.ForeColor = System.Drawing.Color.White;
             this.documentMap1.Location = new System.Drawing.Point(0, 0);
             this.documentMap1.Name = "documentMap1";
-            this.documentMap1.Size = new System.Drawing.Size(82, 584);
+            this.documentMap1.Size = new System.Drawing.Size(100, 584);
             this.documentMap1.TabIndex = 2;
             this.documentMap1.Target = this.htmltext;
             this.documentMap1.Text = "documentMap1";
@@ -1124,18 +1193,12 @@
             this.navBarItem3});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 186;
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 150;
             this.navBarControl1.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl1.Size = new System.Drawing.Size(186, 584);
+            this.navBarControl1.Size = new System.Drawing.Size(150, 584);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
-            // 
-            // navBarGroup4
-            // 
-            this.navBarGroup4.Caption = "Bootstrap";
-            this.navBarGroup4.Expanded = true;
-            this.navBarGroup4.Name = "navBarGroup4";
             // 
             // navBarGroup1
             // 
@@ -1362,6 +1425,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
             this.navBarGroup2.Name = "navBarGroup2";
+            this.navBarGroup2.TopVisibleLinkIndex = 3;
             // 
             // addclass
             // 
@@ -1470,6 +1534,11 @@
             this.navBarGroup3.Caption = "Animate.css";
             this.navBarGroup3.Name = "navBarGroup3";
             // 
+            // navBarGroup4
+            // 
+            this.navBarGroup4.Caption = "Bootstrap";
+            this.navBarGroup4.Name = "navBarGroup4";
+            // 
             // navBarGroup5
             // 
             this.navBarGroup5.Caption = "W3.CSS";
@@ -1542,7 +1611,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 662);
+            this.ClientSize = new System.Drawing.Size(1026, 662);
             this.Controls.Add(this.classpanel);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -1556,13 +1625,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Web";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.MouseHover += new System.EventHandler(this.Form1_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemOfficeColorPickEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorPickEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.html_file_list)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Listicon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.list_menu)).EndInit();
@@ -1579,8 +1653,6 @@
             this.splitContainerControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
             this.splitContainerControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).EndInit();
-            this.splitContainerControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tab)).EndInit();
             this.tab.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
@@ -1594,6 +1666,8 @@
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.csstext)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl7)).EndInit();
+            this.splitContainerControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classpanel)).EndInit();
             this.classpanel.ResumeLayout(false);
@@ -1619,17 +1693,9 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl5;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl6;
-        private DevExpress.XtraTab.XtraTabControl tab;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
-        private FastColoredTextBoxNS.FastColoredTextBox htmltext;
-        private FastColoredTextBoxNS.FastColoredTextBox csstext;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private FastColoredTextBoxNS.DocumentMap documentMap1;
         private DevExpress.XtraEditors.ImageListBoxControl html_file_list;
         private DevExpress.Utils.ImageCollection Listicon;
@@ -1658,11 +1724,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraEditors.PanelControl panel2;
-        private DevExpress.XtraEditors.SimpleButton file_c;
-        private DevExpress.XtraEditors.SimpleButton file_ok;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.TextEdit file_name_box;
         private DevExpress.XtraBars.BarButtonItem firefox;
         private DevExpress.XtraBars.BarButtonItem Internet_Explorer;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
@@ -1676,8 +1737,6 @@
         private DevExpress.XtraBars.Bar bar4;
         private DevExpress.XtraNavBar.NavBarItem h1;
         private DevExpress.XtraNavBar.NavBarItem h2;
-        private DevExpress.XtraEditors.PictureEdit ImageV;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.Timer timer1;
         public DevExpress.XtraBars.BarStaticItem status;
         private DevExpress.XtraBars.BarButtonItem barButtonItem17;
@@ -1746,6 +1805,29 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem20;
         private DevExpress.XtraBars.BarButtonItem barButtonItem21;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
+        private DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar repositoryItemZoomTrackBar2;
+        private DevExpress.XtraBars.BarEditItem barEditItem5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar repositoryItemZoomTrackBar1;
+        private DevExpress.XtraBars.BarDockingMenuItem barDockingMenuItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem23;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl7;
+        private DevExpress.XtraTab.XtraTabControl tab;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.PictureEdit ImageV;
+        private DevExpress.XtraEditors.PanelControl panel2;
+        private DevExpress.XtraEditors.SimpleButton file_c;
+        private DevExpress.XtraEditors.SimpleButton file_ok;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.TextEdit file_name_box;
+        public FastColoredTextBoxNS.FastColoredTextBox htmltext;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        public FastColoredTextBoxNS.FastColoredTextBox csstext;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 

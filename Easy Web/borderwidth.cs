@@ -63,13 +63,20 @@ namespace Easy_Web
         {
             Form f = Application.OpenForms["Form1"];
             if (radioGroup1.SelectedIndex == 0)
-                ((Form1)f).applaycss("border-width:" + textEdit1.Text + comboBoxEdit1.Text + ";");
+            {
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "border-width", textEdit1.Text + comboBoxEdit1.Text);
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
+
             else
             {
-                ((Form1)f).applaycss("border-bottom-width:" + textEdit5.Text + comboBoxEdit1.Text + ";");
-                ((Form1)f).applaycss("border-right-width:" + textEdit4.Text + comboBoxEdit1.Text + ";");
-                ((Form1)f).applaycss("border-left-width:" + textEdit3.Text + comboBoxEdit1.Text + ";");
-                ((Form1)f).applaycss("border-top-width:" + textEdit2.Text + comboBoxEdit1.Text + ";");   
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "border-bottom-width" , textEdit5.Text + comboBoxEdit1.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "border-right-width" , textEdit4.Text + comboBoxEdit1.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "border-left-width" , textEdit3.Text + comboBoxEdit1.Text );
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "border-top-width" , textEdit2.Text + comboBoxEdit1.Text );
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
             }
             this.Close();
         }
