@@ -218,7 +218,7 @@ namespace Easy_Web
             if (tagcannotexist && !tagExist)
             {
                 TagWithCSS t = new TagWithCSS();
-                t.TagName = Tag;
+                t.TagName = "." + Tag;
                 Property p = new Property();
                 p.PropertyName = ProvertyName;
                 p.PropertyValue = PropertValue;

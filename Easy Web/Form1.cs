@@ -1128,6 +1128,7 @@ namespace Easy_Web
             }
 
             this.WindowState = FormWindowState.Maximized;
+            splitContainerControl1.SplitterPosition = this.Width - 330;
 
         }
 
