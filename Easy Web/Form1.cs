@@ -1128,7 +1128,7 @@ namespace Easy_Web
             }
 
             this.WindowState = FormWindowState.Maximized;
-
+            splitContainerControl1.SplitterPosition = this.Width - 330;
         }
 
         private void ContentsItem3_LinkClicked(object sender, NavBarLinkEventArgs e)
