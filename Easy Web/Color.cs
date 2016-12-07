@@ -38,7 +38,7 @@ namespace Easy_Web
             Form f = Application.OpenForms["Form1"];
             if (textcolor.Checked)
             {
-                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);                              ;
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
                 ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "color", HexConverter(tcolor.Color));
                 ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
             }
@@ -69,6 +69,13 @@ namespace Easy_Web
             }
             this.Close();
         }
-        
+
+        private void tcolor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.End)
+            
+                apply.PerformClick();
+            
+        }
     }
 }

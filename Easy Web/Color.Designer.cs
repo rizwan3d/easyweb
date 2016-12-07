@@ -69,6 +69,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tcolor.Size = new System.Drawing.Size(100, 20);
             this.tcolor.TabIndex = 3;
+            this.tcolor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tcolor_KeyDown);
             // 
             // bcolor
             // 
@@ -79,6 +80,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.bcolor.Size = new System.Drawing.Size(100, 20);
             this.bcolor.TabIndex = 5;
+            this.bcolor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tcolor_KeyDown);
             // 
             // backgroundcolor
             // 
@@ -97,6 +99,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.borcolor.Size = new System.Drawing.Size(100, 20);
             this.borcolor.TabIndex = 7;
+            this.borcolor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tcolor_KeyDown);
             // 
             // border
             // 
@@ -115,6 +118,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ocolor.Size = new System.Drawing.Size(100, 20);
             this.ocolor.TabIndex = 9;
+            this.ocolor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tcolor_KeyDown);
             // 
             // outlinecolor
             // 
@@ -133,6 +137,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tdcolor.Size = new System.Drawing.Size(100, 20);
             this.tdcolor.TabIndex = 11;
+            this.tdcolor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tcolor_KeyDown);
             // 
             // textdecorationcolor
             // 

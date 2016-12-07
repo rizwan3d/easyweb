@@ -167,10 +167,10 @@ namespace Easy_Web
         AutocompleteMenu popupMenu2;
 
         public projectfiles[] pf = new projectfiles[10000];
-        private bool firstrun = true;
         private bool projopend;
         private cssfunctions cssfun = new cssfunctions();
 
+        string projectname = string.Empty;
         public CSSPARSER parser; 
 
         private void open_project_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -181,8 +181,12 @@ namespace Easy_Web
             }
 
             FolderBrowserDialog f = new FolderBrowserDialog();
+            
             if (f.ShowDialog() == DialogResult.OK)
             {
+                string[] s = f.SelectedPath.Split('\\');
+                projectname = s[s.Length - 1];
+                this.Text = "Easy Web [" + projectname  + "]";
                 if (Directory.Exists(f.SelectedPath + "\\css") && Directory.Exists(f.SelectedPath + "\\img") && Directory.Exists(f.SelectedPath + "\\fonts") && File.Exists(f.SelectedPath + "\\index.html") && File.Exists(f.SelectedPath + "\\css\\basic.css"))
                 {
                     Fulllist(f.SelectedPath);
@@ -323,9 +327,9 @@ namespace Easy_Web
                     {
                         if (iame_file_list.SelectedItem.ToString() == p.name)
                         {
-                            if (tab.SelectedTabPage.Text == "Source")
+                            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
                                 htmltext.SelectedText = "./img/" + p.name;
-                            else if (tab.SelectedTabPage.Text == "CSS")
+                            else if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
                                 csstext.SelectedText = "../img/" + p.name;
                         }
                     }
@@ -588,19 +592,26 @@ namespace Easy_Web
         }
         private void Internet_Explorer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\iexplorer.exe\");
-
-            string productName = (string)reg.GetValue("Path") + "\\iexplorer.exe";
-            if (File.Exists(productName))
+            try
             {
-                if (CHTML != null)
+                var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\iexplorer.exe\");
+
+                string productName = (string)reg.GetValue("Path") + "\\iexplorer.exe";
+                if (File.Exists(productName))
                 {
-                    string url = (path + "\\" + CHTML);
-                    System.Diagnostics.Process.Start("iexplore.exe", "\"" + url + "\"");
+                    if (CHTML != null)
+                    {
+                        string url = (path + "\\" + CHTML);
+                        System.Diagnostics.Process.Start("iexplore.exe", "\"" + url + "\"");
+                    }
                 }
+                else
+                    MessageBox.Show("Install Internet Explorer");
             }
-            else
+            catch(Exception g)
+            {
                 MessageBox.Show("Install Internet Explorer");
+            }
         }
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -629,32 +640,6 @@ namespace Easy_Web
         private void h1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             htmltext.SelectedText = "<h1> </h1>";
-        }
-        private void iame_file_list_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!firstrun)
-            {
-                if (iame_file_list.SelectedItem != null)
-                {
-
-                    foreach (projectfiles p2 in pf)
-                    {
-                        if (p2.name != null)
-                        {
-                            if (iame_file_list.SelectedItem.ToString() == p2.name)
-                            {
-                                ImageV.Image = new Bitmap(p2.path);
-                                ImageV.Visible = true;
-                                timer1.Enabled = true;
-                                simpleButton1.Visible = true;
-                                simpleButton1.BringToFront();
-                            }
-                        }
-                    }
-                }
-            }
-            else
-                firstrun = false;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -716,16 +701,16 @@ namespace Easy_Web
         }
         private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (tab.SelectedTabPage.Text == "Source")
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
                 htmltext.ShowFindDialog();
-            else if (tab.SelectedTabPage.Text == "CSS")
+            else if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
                 csstext.ShowFindDialog();
         }
         private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (tab.SelectedTabPage.Text == "Source")
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
                 htmltext.ShowReplaceDialog();
-            else if (tab.SelectedTabPage.Text == "CSS")
+            else if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
                 csstext.ShowReplaceDialog();
         }
         private void h2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -834,9 +819,9 @@ namespace Easy_Web
         }
         private void tab_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
-            if (tab.SelectedTabPage.Text == "Source")
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
                 documentMap1.Target = htmltext;
-            if (tab.SelectedTabPage.Text == "CSS")
+            if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
                 documentMap1.Target = csstext;
         }
         private void new_project_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -865,6 +850,9 @@ namespace Easy_Web
             if (FBD.ShowDialog() == DialogResult.OK)
             {
                 path = FBD.SelectedPath;
+                string[] s = FBD.SelectedPath.Split('\\');
+                projectname = s[s.Length - 1];
+                this.Name = "Easy Web [" + projectname + "]";
                 DirectoryInfo css = Directory.CreateDirectory(FBD.SelectedPath + "\\css");
                 DirectoryInfo images = Directory.CreateDirectory(FBD.SelectedPath + "\\img");
                 DirectoryInfo fon = Directory.CreateDirectory(FBD.SelectedPath + "\\fonts");
@@ -1128,13 +1116,13 @@ namespace Easy_Web
             }
 
             this.WindowState = FormWindowState.Maximized;
-            splitContainerControl1.SplitterPosition = this.Width - 330;
+            MouseStrip.BackColor = this.BackColor;
+            MouseStrip.ForeColor = this.ForeColor;
         }
 
         private void ContentsItem3_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             string str;
-            string str2;
             if (!File.Exists(this.path + "\\css\\w3.css"))
             {
                 if (File.Exists(Environment.CurrentDirectory + "\\Files\\w3.css"))
@@ -1307,14 +1295,7 @@ namespace Easy_Web
                 return null;
             }
         }
-
-        private void Form1_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {}
-
+        
         private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (IsWindows10())
@@ -1358,9 +1339,9 @@ namespace Easy_Web
 
         private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (tab.SelectedTabPage.Text == "Source")
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
                 htmltext.ShowGoToDialog();
-            if (tab.SelectedTabPage.Text == "CSS")
+            if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
                 csstext.ShowGoToDialog();
         }
         private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -1369,12 +1350,87 @@ namespace Easy_Web
             s.ShowDialog();
         }
 
-        private void Form1_ResizeEnd(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            splitContainerControl1.SplitterPosition = this.Width - 330;
+            if(tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
+                htmltext.SelectedText = "";
+            if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
+                csstext.SelectedText = "";
         }
 
-  
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ok");
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
+                htmltext.Cut();
+            if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
+                csstext.Cut();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
+                htmltext.Copy();
+            if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
+                csstext.Copy();
+        }
+
+        private void pastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
+                htmltext.Paste();
+            if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
+                csstext.Paste();
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tab.SelectedTabPage.Text.Substring(0, "Source".Length) == "Source")
+                htmltext.SelectAll();
+            if (tab.SelectedTabPage.Text.Substring(0, "CSS".Length) == "CSS")
+                csstext.SelectAll();
+        }
+
+        private void iame_file_list_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (iame_file_list.SelectedItem != null)
+            {
+
+                foreach (projectfiles p2 in pf)
+                {
+                    if (p2.name != null)
+                    {
+                        if (iame_file_list.SelectedItem.ToString() == p2.name)
+                        {
+                            ImageV.Image = new Bitmap(p2.path);
+                            ImageV.Visible = true;
+                            timer1.Enabled = true;
+                            simpleButton1.Visible = true;
+                            simpleButton1.BringToFront();
+                            ImageV.BringToFront();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void classname_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                classok.PerformClick();
+        }
+
+        private void file_name_box_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                file_ok.PerformClick();
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            splitContainerControl1.SplitterPosition = this.Width - 330;
+
+        }
         void updateautocompleat()
         {
             List<AutocompleteItem> items = new List<AutocompleteItem>();
@@ -1392,8 +1448,9 @@ namespace Easy_Web
             {
                 if(p.name != null)
                 {
-                    if (p.name.Contains("html"))
+                    //if (p.name.Contains("html"))
                         items.Add(new AutocompleteItem(p.name));
+                    items.Add(new AutocompleteItem(p.path));
                 }
             }
 
@@ -1406,6 +1463,7 @@ namespace Easy_Web
             tab.TabPages[2].Text = "Live[" + CHTML + "]";
         }
 
+        
 
     }
 }

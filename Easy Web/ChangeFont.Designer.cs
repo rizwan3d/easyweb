@@ -48,6 +48,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.fontEdit1.Size = new System.Drawing.Size(164, 20);
             this.fontEdit1.TabIndex = 0;
+            this.fontEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChangeFont_KeyDown);
             // 
             // radioGroup1
             // 
@@ -79,6 +80,7 @@
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(164, 20);
             this.textEdit1.TabIndex = 4;
+            this.textEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChangeFont_KeyDown);
             // 
             // simpleButton1
             // 
@@ -109,6 +111,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Font";
             this.Load += new System.EventHandler(this.XtraForm1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChangeFont_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.fontEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();

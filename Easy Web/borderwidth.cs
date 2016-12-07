@@ -80,5 +80,13 @@ namespace Easy_Web
             }
             this.Close();
         }
+
+        private void textEdit1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.End)
+            {
+                simpleButton1.PerformClick();
+            }
+        }
     }
 }

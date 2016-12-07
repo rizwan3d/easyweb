@@ -61,6 +61,7 @@
             this.listBoxControl1.Size = new System.Drawing.Size(158, 162);
             this.listBoxControl1.TabIndex = 1;
             this.listBoxControl1.Click += new System.EventHandler(this.listBoxControl1_Click);
+            this.listBoxControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxControl1_KeyDown);
             // 
             // simpleButton1
             // 
@@ -98,6 +99,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Background Image";
             this.Load += new System.EventHandler(this.BImage_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxControl1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
             this.ResumeLayout(false);

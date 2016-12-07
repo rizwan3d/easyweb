@@ -25,12 +25,11 @@ namespace Easy_Web
             string ToRreturn = string.Empty;
             foreach (TagWithCSS T in TagWithCSSList)
             {
-                //ToRreturn += "//---------------------------" + T.TagName + "-----------------------------\n";
                 ToRreturn += T.TagName;
-                ToRreturn += " {\n";
+                ToRreturn += "\n{\n";
                 foreach (Property p in T.Properties)
                 {
-                    ToRreturn += p.PropertyName + ":" + p.PropertyValue + ";\n";
+                    ToRreturn += "\t" + p.PropertyName + ":" + p.PropertyValue + ";\n";
                 }
                 ToRreturn += "}\n";
 
@@ -71,7 +70,7 @@ namespace Easy_Web
         }
         List<string> IndivisualTags(string input)
         {
-            string pattern = @"(?<selector>(?:(?:[^,{]+),?)*?)\{(?:(?<name>[^}:]+):?(?<value>[^};]+);?)*?\}"/*@"(?<=\}\s*)(?<selector>[^\{\}]+?)(?:\s*\{(?<style>[^\{\}]+)\})"*/;
+            string pattern = @"(?<selector>(?:(?:[^,{]+),?)*?)\{(?:(?<name>[^}:]+):?(?<value>[^};]+);?)*?\}";
 
             List<string> b = new List<string>();
 
@@ -120,7 +119,6 @@ namespace Easy_Web
         {
             int pointinTagWithCSSList = 0;
             int pointinProperties = 0;
-            bool removed = false;
 
             foreach (TagWithCSS T in TagWithCSSList)
             {
@@ -130,18 +128,31 @@ namespace Easy_Web
                     {
                         if (p.PropertyName.Equals(ProvertyName, StringComparison.InvariantCultureIgnoreCase))
                         {
-
                             TagWithCSSList[pointinTagWithCSSList].Properties.RemoveAt(pointinProperties);
-                            removed = true;
-                            break;
+                            return true;
                         }
                         pointinProperties++;
                     }
-                    break;
+
                 }
                 pointinTagWithCSSList++;
             }
-            return removed;
+            return false;
+        }
+        public bool RemoveTag(string Tag)
+        {
+            int pointinTagWithCSSList = 0;
+
+            foreach (TagWithCSS T in TagWithCSSList)
+            {
+                if (T.TagName.Equals(Tag, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    TagWithCSSList.RemoveAt(pointinTagWithCSSList);
+                    return true;
+                }
+                pointinTagWithCSSList++;
+            }
+            return false;
         }
         public List<Property> GetProperties(string Tag)
         {
@@ -157,18 +168,30 @@ namespace Easy_Web
             }
             return new List<Property>();
         }
+        public Property GetPropertie(string Tag, string PropertyName)
+        {
+            int pointinTagWithCSSList = 0;
+
+            foreach (TagWithCSS T in TagWithCSSList)
+            {
+                if (T.TagName.Equals(Tag, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    foreach (Property p in T.Properties)
+                    {
+                        if (p.PropertyName.Equals(PropertyName, StringComparison.InvariantCultureIgnoreCase))
+                            return p;
+                    }
+                }
+                pointinTagWithCSSList++;
+            }
+            return new Property();
+        }
         public void SetCSS(string input)
         {
             TagWithCSSList = GetTagWithCSS(input);
         }
         public bool AddPropery(string Tag, string ProvertyName, string PropertValue)
         {
-            if(Tag == "" || Tag == null || Tag == string.Empty)
-            {
-                MessageBox.Show("Invalad Tag/Class");
-                return false;
-            }
-
             int pointinTagWithCSSList = 0;
             int pointinProperties = 0;
             bool notfound = false;
@@ -176,6 +199,8 @@ namespace Easy_Web
 
             bool tagcannotexist = true;
             bool tagExist = false;
+
+            Tag = "." + Tag;
 
             foreach (TagWithCSS T in TagWithCSSList)
             {
@@ -218,7 +243,7 @@ namespace Easy_Web
             if (tagcannotexist && !tagExist)
             {
                 TagWithCSS t = new TagWithCSS();
-                t.TagName = "." + Tag;
+                t.TagName = Tag;
                 Property p = new Property();
                 p.PropertyName = ProvertyName;
                 p.PropertyValue = PropertValue;

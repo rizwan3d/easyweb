@@ -69,5 +69,13 @@ namespace Easy_Web
             }
             this.Close();
         }
+
+        private void ChangeFont_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.End)
+            {
+                simpleButton1.PerformClick();
+            }
+        }
     }
 }

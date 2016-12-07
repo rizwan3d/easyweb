@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
@@ -94,8 +93,8 @@
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.html_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
-            this.Listicon = new DevExpress.Utils.ImageCollection(this.components);
-            this.list_menu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.Listicon = new DevExpress.Utils.ImageCollection();
+            this.list_menu = new DevExpress.XtraBars.PopupMenu();
             this.css_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
             this.iame_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
             this.font_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
@@ -106,14 +105,20 @@
             this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tab = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.ImageV = new DevExpress.XtraEditors.PictureEdit();
             this.panel2 = new DevExpress.XtraEditors.PanelControl();
             this.file_c = new DevExpress.XtraEditors.SimpleButton();
             this.file_ok = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.file_name_box = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.ImageV = new DevExpress.XtraEditors.PictureEdit();
             this.htmltext = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.MouseStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.csstext = new FastColoredTextBoxNS.FastColoredTextBox();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
@@ -172,7 +177,7 @@
             this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.bar4 = new DevExpress.XtraBars.Bar();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.classpanel = new DevExpress.XtraEditors.PanelControl();
             this.calsscancel = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -206,11 +211,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tab)).BeginInit();
             this.tab.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.file_name_box.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.htmltext)).BeginInit();
+            this.MouseStrip.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.csstext)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
@@ -495,8 +501,8 @@
             this.bar5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem13),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem14)});
-            this.bar5.Offset = 114;
-            this.bar5.Text = "Custom 5";
+            this.bar5.Offset = 113;
+            this.bar5.Text = "Edit";
             // 
             // barButtonItem13
             // 
@@ -520,8 +526,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem15),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem16),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem21)});
-            this.bar6.Offset = 244;
-            this.bar6.Text = "Custom 6";
+            this.bar6.Offset = 234;
+            this.bar6.Text = "Run";
             // 
             // barButtonItem15
             // 
@@ -816,8 +822,8 @@
             this.iame_file_list.Size = new System.Drawing.Size(170, 87);
             this.iame_file_list.TabIndex = 2;
             this.iame_file_list.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
-            this.iame_file_list.SelectedIndexChanged += new System.EventHandler(this.iame_file_list_SelectedIndexChanged);
             this.iame_file_list.DoubleClick += new System.EventHandler(this.iame_file_list_DoubleClick);
+            this.iame_file_list.MouseClick += new System.Windows.Forms.MouseEventHandler(this.iame_file_list_MouseClick);
             // 
             // font_file_list
             // 
@@ -927,34 +933,13 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.panel2);
             this.xtraTabPage1.Controls.Add(this.simpleButton1);
             this.xtraTabPage1.Controls.Add(this.ImageV);
-            this.xtraTabPage1.Controls.Add(this.panel2);
             this.xtraTabPage1.Controls.Add(this.htmltext);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(564, 557);
             this.xtraTabPage1.Text = "Source[]";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(430, 43);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(29, 29);
-            this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "X";
-            this.simpleButton1.Visible = false;
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
-            // 
-            // ImageV
-            // 
-            this.ImageV.Location = new System.Drawing.Point(0, 38);
-            this.ImageV.MenuManager = this.barManager1;
-            this.ImageV.Name = "ImageV";
-            this.ImageV.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.ImageV.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.ImageV.Size = new System.Drawing.Size(466, 363);
-            this.ImageV.TabIndex = 3;
-            this.ImageV.Visible = false;
             // 
             // panel2
             // 
@@ -974,7 +959,7 @@
             this.file_c.Name = "file_c";
             this.file_c.Size = new System.Drawing.Size(75, 23);
             this.file_c.TabIndex = 3;
-            this.file_c.Text = "Cancle";
+            this.file_c.Text = "Cancel";
             this.file_c.Click += new System.EventHandler(this.file_c_Click);
             // 
             // file_ok
@@ -1002,6 +987,28 @@
             this.file_name_box.Name = "file_name_box";
             this.file_name_box.Size = new System.Drawing.Size(162, 20);
             this.file_name_box.TabIndex = 0;
+            this.file_name_box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.file_name_box_KeyDown);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(430, 43);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(29, 29);
+            this.simpleButton1.TabIndex = 4;
+            this.simpleButton1.Text = "X";
+            this.simpleButton1.Visible = false;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
+            // 
+            // ImageV
+            // 
+            this.ImageV.Location = new System.Drawing.Point(0, 38);
+            this.ImageV.MenuManager = this.barManager1;
+            this.ImageV.Name = "ImageV";
+            this.ImageV.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.ImageV.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.ImageV.Size = new System.Drawing.Size(466, 363);
+            this.ImageV.TabIndex = 3;
+            this.ImageV.Visible = false;
             // 
             // htmltext
             // 
@@ -1026,12 +1033,14 @@
             this.htmltext.CharHeight = 14;
             this.htmltext.CharWidth = 8;
             this.htmltext.CommentPrefix = null;
+            this.htmltext.ContextMenuStrip = this.MouseStrip;
             this.htmltext.CurrentLineColor = System.Drawing.Color.White;
             this.htmltext.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.htmltext.DisabledColor = System.Drawing.Color.Transparent;
             this.htmltext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.htmltext.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
             this.htmltext.FoldingIndicatorColor = System.Drawing.Color.Crimson;
+            this.htmltext.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.htmltext.ForeColor = System.Drawing.Color.White;
             this.htmltext.IsReplaceMode = false;
             this.htmltext.Language = FastColoredTextBoxNS.Language.HTML;
@@ -1047,6 +1056,53 @@
             this.htmltext.Size = new System.Drawing.Size(564, 557);
             this.htmltext.TabIndex = 1;
             this.htmltext.Zoom = 100;
+            // 
+            // MouseStrip
+            // 
+            this.MouseStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cutToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pastToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.selectAllToolStripMenuItem});
+            this.MouseStrip.Name = "contextMenuStrip1";
+            this.MouseStrip.Size = new System.Drawing.Size(123, 114);
+            this.MouseStrip.Text = "MouseStrip";
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pastToolStripMenuItem
+            // 
+            this.pastToolStripMenuItem.Name = "pastToolStripMenuItem";
+            this.pastToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.pastToolStripMenuItem.Text = "Paste";
+            this.pastToolStripMenuItem.Click += new System.EventHandler(this.pastToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // selectAllToolStripMenuItem
+            // 
+            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.selectAllToolStripMenuItem.Text = "Select All";
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
             // xtraTabPage2
             // 
@@ -1075,11 +1131,13 @@
             this.csstext.CaretColor = System.Drawing.Color.White;
             this.csstext.CharHeight = 14;
             this.csstext.CharWidth = 8;
+            this.csstext.ContextMenuStrip = this.MouseStrip;
             this.csstext.CurrentLineColor = System.Drawing.Color.White;
             this.csstext.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.csstext.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.csstext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.csstext.FoldingIndicatorColor = System.Drawing.Color.Crimson;
+            this.csstext.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.csstext.ForeColor = System.Drawing.Color.White;
             this.csstext.IsReplaceMode = false;
             this.csstext.Location = new System.Drawing.Point(0, 0);
@@ -1136,7 +1194,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup1;
+            this.navBarControl1.ActiveGroup = this.navBarGroup2;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Enabled = false;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
@@ -1203,7 +1261,6 @@
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "HTML";
-            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.commetns),
             new DevExpress.XtraNavBar.NavBarItemLink(this.h1),
@@ -1234,6 +1291,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.dropdownlist),
             new DevExpress.XtraNavBar.NavBarItemLink(this.option)});
             this.navBarGroup1.Name = "navBarGroup1";
+            this.navBarGroup1.TopVisibleLinkIndex = 4;
             // 
             // commetns
             // 
@@ -1406,6 +1464,7 @@
             // navBarGroup2
             // 
             this.navBarGroup2.Caption = "CSS";
+            this.navBarGroup2.Expanded = true;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.addclass),
             new DevExpress.XtraNavBar.NavBarItemLink(this.bold),
@@ -1425,7 +1484,6 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
             this.navBarGroup2.Name = "navBarGroup2";
-            this.navBarGroup2.TopVisibleLinkIndex = 3;
             // 
             // addclass
             // 
@@ -1579,7 +1637,7 @@
             this.calsscancel.Name = "calsscancel";
             this.calsscancel.Size = new System.Drawing.Size(57, 23);
             this.calsscancel.TabIndex = 3;
-            this.calsscancel.Text = "Cancle";
+            this.calsscancel.Text = "Cancel";
             this.calsscancel.Click += new System.EventHandler(this.calsscancel_Click);
             // 
             // labelControl1
@@ -1606,6 +1664,7 @@
             this.classname.Name = "classname";
             this.classname.Size = new System.Drawing.Size(144, 20);
             this.classname.TabIndex = 0;
+            this.classname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.classname_KeyDown);
             // 
             // Form1
             // 
@@ -1625,9 +1684,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Web";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
-            this.MouseHover += new System.EventHandler(this.Form1_MouseHover);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
@@ -1657,12 +1714,13 @@
             this.tab.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.file_name_box.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.htmltext)).EndInit();
+            this.MouseStrip.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.csstext)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
@@ -1828,6 +1886,12 @@
         public FastColoredTextBoxNS.FastColoredTextBox csstext;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.ContextMenuStrip MouseStrip;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
     }
 }
 

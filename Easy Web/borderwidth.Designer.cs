@@ -59,6 +59,7 @@
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(77, 20);
             this.textEdit1.TabIndex = 0;
+            this.textEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit1_KeyDown);
             // 
             // radioGroup1
             // 
@@ -75,6 +76,7 @@
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(77, 20);
             this.textEdit2.TabIndex = 2;
+            this.textEdit2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit1_KeyDown);
             // 
             // textEdit3
             // 
@@ -84,6 +86,7 @@
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(77, 20);
             this.textEdit3.TabIndex = 3;
+            this.textEdit3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit1_KeyDown);
             // 
             // textEdit4
             // 
@@ -93,6 +96,7 @@
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Size = new System.Drawing.Size(77, 20);
             this.textEdit4.TabIndex = 4;
+            this.textEdit4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit1_KeyDown);
             // 
             // textEdit5
             // 
@@ -102,6 +106,7 @@
             this.textEdit5.Name = "textEdit5";
             this.textEdit5.Size = new System.Drawing.Size(77, 20);
             this.textEdit5.TabIndex = 5;
+            this.textEdit5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit1_KeyDown);
             // 
             // labelControl1
             // 
@@ -119,6 +124,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit1.Size = new System.Drawing.Size(60, 20);
             this.comboBoxEdit1.TabIndex = 7;
+            this.comboBoxEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit1_KeyDown);
             // 
             // labelControl2
             // 
@@ -201,6 +207,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Border width";
             this.Load += new System.EventHandler(this.borderwidth_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();

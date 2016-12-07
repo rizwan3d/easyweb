@@ -44,6 +44,7 @@
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(100, 20);
             this.textEdit1.TabIndex = 0;
+            this.textEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FontSize_KeyDown);
             // 
             // comboBoxEdit1
             // 
@@ -53,6 +54,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit1.Size = new System.Drawing.Size(38, 20);
             this.comboBoxEdit1.TabIndex = 1;
+            this.comboBoxEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FontSize_KeyDown);
             // 
             // labelControl1
             // 
@@ -89,6 +91,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Font Size";
             this.Load += new System.EventHandler(this.FontSize_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FontSize_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);

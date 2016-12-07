@@ -54,11 +54,22 @@ namespace Easy_Web
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            Form f = Application.OpenForms["Form1"];
-            ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
-            ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "background-image", "url(\"" + listBoxControl1.SelectedItem.ToString() + "\")");
-            ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            if (listBoxControl1.SelectedItem != null)
+            {
+                Form f = Application.OpenForms["Form1"];
+                ((Form1)f).parser.SetCSS(((Form1)f).csstext.Text);
+                ((Form1)f).parser.AddPropery(((Form1)f).htmltext.SelectedText, "background-image", "url(\"" + listBoxControl1.SelectedItem.ToString() + "\")");
+                ((Form1)f).csstext.Text = ((Form1)f).parser.ToString();
+            }
             this.Close();
+        }
+
+        private void listBoxControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.End)
+            {
+                simpleButton1.PerformClick();
+            }
         }
     }
 }

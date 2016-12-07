@@ -66,6 +66,7 @@
             this.trackBarControl1.TabIndex = 2;
             this.trackBarControl1.Value = 10;
             this.trackBarControl1.EditValueChanged += new System.EventHandler(this.trackBarControl1_EditValueChanged);
+            this.trackBarControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.opacity_KeyDown);
             // 
             // label2
             // 
@@ -95,6 +96,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "opacity";
             this.Load += new System.EventHandler(this.opacity_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.opacity_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarControl1)).EndInit();
             this.ResumeLayout(false);

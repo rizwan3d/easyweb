@@ -40,5 +40,13 @@ namespace Easy_Web
         {
 
         }
+
+        private void opacity_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.End)
+            {
+                simpleButton1.PerformClick();
+            }
+        }
     }
 }
