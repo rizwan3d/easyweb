@@ -1453,7 +1453,6 @@ namespace Easy_Web
                     items.Add(new AutocompleteItem(p.path));
                 }
             }
-
             popupMenu.Items.SetAutocompleteItems(items);
         }
         private void settabname()
@@ -1462,8 +1461,5 @@ namespace Easy_Web
             tab.TabPages[1].Text = "CSS[" + CCSS + "]";
             tab.TabPages[2].Text = "Live[" + CHTML + "]";
         }
-
-        
-
     }
 }

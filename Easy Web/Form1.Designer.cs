@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
@@ -93,8 +94,8 @@
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.html_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
-            this.Listicon = new DevExpress.Utils.ImageCollection();
-            this.list_menu = new DevExpress.XtraBars.PopupMenu();
+            this.Listicon = new DevExpress.Utils.ImageCollection(this.components);
+            this.list_menu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.css_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
             this.iame_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
             this.font_file_list = new DevExpress.XtraEditors.ImageListBoxControl();
@@ -113,7 +114,7 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.ImageV = new DevExpress.XtraEditors.PictureEdit();
             this.htmltext = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.MouseStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.MouseStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,7 +178,7 @@
             this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.bar4 = new DevExpress.XtraBars.Bar();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.classpanel = new DevExpress.XtraEditors.PanelControl();
             this.calsscancel = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -943,6 +944,9 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.file_c);
             this.panel2.Controls.Add(this.file_ok);
             this.panel2.Controls.Add(this.label1);
@@ -955,6 +959,9 @@
             // 
             // file_c
             // 
+            this.file_c.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.file_c.Location = new System.Drawing.Point(107, 54);
             this.file_c.Name = "file_c";
             this.file_c.Size = new System.Drawing.Size(75, 23);
@@ -964,6 +971,9 @@
             // 
             // file_ok
             // 
+            this.file_ok.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.file_ok.Location = new System.Drawing.Point(20, 54);
             this.file_ok.Name = "file_ok";
             this.file_ok.Size = new System.Drawing.Size(75, 23);
@@ -973,6 +983,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(71, 10);
             this.label1.Name = "label1";
@@ -982,6 +995,9 @@
             // 
             // file_name_box
             // 
+            this.file_name_box.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.file_name_box.Location = new System.Drawing.Point(20, 28);
             this.file_name_box.MenuManager = this.barManager1;
             this.file_name_box.Name = "file_name_box";
@@ -1194,7 +1210,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup2;
+            this.navBarControl1.ActiveGroup = this.navBarGroup1;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Enabled = false;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
@@ -1261,6 +1277,7 @@
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "HTML";
+            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.commetns),
             new DevExpress.XtraNavBar.NavBarItemLink(this.h1),
@@ -1464,7 +1481,6 @@
             // navBarGroup2
             // 
             this.navBarGroup2.Caption = "CSS";
-            this.navBarGroup2.Expanded = true;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.addclass),
             new DevExpress.XtraNavBar.NavBarItemLink(this.bold),
@@ -1621,6 +1637,9 @@
             // 
             // classpanel
             // 
+            this.classpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.classpanel.Controls.Add(this.calsscancel);
             this.classpanel.Controls.Add(this.labelControl1);
             this.classpanel.Controls.Add(this.classok);
@@ -1633,6 +1652,9 @@
             // 
             // calsscancel
             // 
+            this.calsscancel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.calsscancel.Location = new System.Drawing.Point(108, 59);
             this.calsscancel.Name = "calsscancel";
             this.calsscancel.Size = new System.Drawing.Size(57, 23);
@@ -1642,6 +1664,9 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Location = new System.Drawing.Point(61, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(59, 13);
@@ -1650,6 +1675,9 @@
             // 
             // classok
             // 
+            this.classok.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.classok.Location = new System.Drawing.Point(21, 59);
             this.classok.Name = "classok";
             this.classok.Size = new System.Drawing.Size(57, 23);
@@ -1659,6 +1687,9 @@
             // 
             // classname
             // 
+            this.classname.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.classname.Location = new System.Drawing.Point(21, 24);
             this.classname.MenuManager = this.barManager1;
             this.classname.Name = "classname";
